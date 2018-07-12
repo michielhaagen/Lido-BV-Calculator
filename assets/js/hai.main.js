@@ -1,4 +1,4 @@
-$ACTION = 'click';
+$ACTION = 'touchstart';
 $(document).ready(function () 
 {
     preloadAllImages();
