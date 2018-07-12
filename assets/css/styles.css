@@ -70,11 +70,17 @@
          url('../fonts/AutorExtraBold.ttf') format('truetype'),
          url('../fonts/AutorExtraBold.svg#AutorExtraBold') format('svg');
 }
-
+.kop1
+{
+	font-family: 'AutorBold';
+	font-size: 18px;
+	font-weight: 100;
+}
 body
 {
 	font-family: 'AutorRegular';
 	margin: 0; padding: 0;
+	overflow: hidden;
 }
 .cacheImage
 {
@@ -349,7 +355,7 @@ body
 {
 	color: rgb(50,50,50);
 }
-.reset__step1, .reset__step2, .reset__step4, .reset__step4, .reset__step5
+.reset__step1, .reset__step2, .reset__step3, .reset__step4, .reset__step5
 {
 	float: right;
 	margin: 5px 10px;
@@ -688,42 +694,44 @@ body
 .overzicht__samenstelling .imageOverview img
 {
 	position: absolute;
-	width: 300px;
-	height: 300px;
+	width: 400px;
+    height: 400px;
 }
 .overzicht__samenstelling .imageOverview .meubel
 {
 	position: absolute;
-	top: 100px;
+	top: 60px;
 	left: 300px;
 	z-index: 10;
 }
 .overzicht__samenstelling .imageOverview .spiegel
 {
 	position: absolute;
-    top: -30px;
+    top: -140px;
     left: 260px;
     z-index: 5;
 }
 .overzicht__samenstelling .imageOverview .fontein
 {
 	position: absolute;
-    top: 130px;
-    left: 0px;
+        top: 90px;
+    left: 660px;
     z-index: 5;
 }
 .overzicht__samenstelling .imageOverview .kasten
 {
 	position: absolute;
-    top: 130px;
-    left: 0px;
+         top: 20px;
+    left: 40px;
     z-index: 5;
 }
-.overzicht__samenstelling .imageOverview .spiegelkasen
+.overzicht__samenstelling .imageOverview .spiegelkasten
 {
 	position: absolute;
-    top: 130px;
-    left: 0px;
+	    top: -130px;
+    left: 640px;
+
+  
     z-index: 5;
 }
 .tbl__samenstelling tr

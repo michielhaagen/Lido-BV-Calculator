@@ -1,4 +1,4 @@
-$ACTION = 'touchstart';
+$ACTION = 'click';
 $(document).ready(function () 
 {
     preloadAllImages();
@@ -180,7 +180,7 @@ $(document).ready(function ()
 
 	//STEP 1 MEUBELS
 	$("#slider__meubels").slick({
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: true,
         arrows: false,
@@ -325,13 +325,13 @@ $(document).ready(function ()
 		$(".placeholder__slider__spiegelkasten").hide();
         $(".step__4 .nav__step").removeClass('active');
         $(".step__4 .navstep__2").addClass('active');
-        loadColorsSpiegelkasten($kastenIDs, $kastenNames, colorsLoadedSpiegelkasten);
+        loadColorsSpiegelkasten($spiegelkastenIDs, $spiegelkastenNames, colorsLoadedSpiegelkasten);
         colorsLoadedSpiegelkasten = 1;
 	});
 
     //STEP 5 spiegels
 	$("#slider__spiegel").slick({
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: true,
         arrows: false,
