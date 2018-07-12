@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+     <!-- CSS -->
+    <link href="assets/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/jquery.slick.css" rel="stylesheet" type="text/css" />
+    <!-- /CSS -->
+
+
+    <!-- JS -->
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/hai.vars.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.slick.min.js" type="text/javascript"></script>
+    <script src="assets/js/hai.main.js" type="text/javascript"></script>
+    <!-- /JS -->
+    
+    <title>Lido BV Calculator</title>
+</head>
+
+<body>
+   <img class="cacheImage" src="">
+    <div class="loading" style="background-image: url('assets/img/screensaver/1.jpg');">
+        <div class="kader">
+            <div class="right">
+                Bezig met laden van de calculator...
+            </div>
+        </div>
+
+    </div>
+    <div class="hoverPage"></div>
+    <div class="logo">
+        <img src="assets/img/logo.svg">
+    </div>
+    <div class="screensaver">
+
+        <div class="kader">
+            <div class="right">
+                jouw eigen badmeubel van italiaans design
+                <p><a href="#" class="btnWhite btnRight">Stel zelf samen</a></p>
+            </div>
+        </div>
+        <div id="slick__screensaver">
+            <div class="slide" style="background-image: url('assets/img/screensaver/1.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/2.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/3.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/4.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/5.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/6.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/7.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/8.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/9.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/10.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/11.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/12.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/13.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/14.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/15.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/img/screensaver/16.jpg');"></div>
+        </div>
+    </div>  
+
+
+    <div class="navigation__top">
+        <div class="item active" data-id="step__1"><span>Badmeubelen</span></div>
+        <div class="item" data-id="step__2"><span>Fonteinmeubel</span></div>
+        <div class="item" data-id="step__3"><span>Hoge kasten</span></div>
+        <div class="item" data-id="step__4"><span>Spiegelkasten</span></div>
+        <div class="item" data-id="step__5"><span>Spiegels</span></div>
+
+        <!-- <div class="item overzicht" data-id="samenstelling">Bekijk samenstelling</div> -->
+    </div>
+
+    <div class="calculator__content">
+        <div class="steps step__1 active">
+            <div class="bottomRed">
+                <a href="#" class="btnBottom btnSamenstelilng btnRight btnSmall">Overzicht samenstelling</a>
+                <a href="#" class="btnWhite btnSmall btnRight btnKiesKleur">Kies je kleur</a>
+                <a href="#" class="btnWhite btnSmall btnRight btnKiesBlad">Kies je wastafel</a>
+                <div class="btnAdd btnWhite btnRight btnSmall" id="btn__1" data-id="">Opslaan</div>
+            </div>
+            <div class="bottomNav">
+                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> formaat</div>
+                <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> kleur</div>
+                <div class="navstep__3 nav__step bottomNavItem"><span class="nav__step__box">3</span> blad</div>
+                <div class="reset__step1">Opnieuw beginnen</div>
+
+            </div>
+
+
+            <div class="badmeubel__voorbeeld makeBig">
+
+            </div>
+            <div class="wastafel__voorbeeld makeBig">
+                
+            </div>
+
+
+            <div class="placeholder__slider__meubels">
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__meubels"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__meubels"><span class="icon-arrowRight"></span></div>
+                <div class="slider__meubels" id="slider__meubels">
+                    <div class="item" 
+                    data-id="MM11001{}MM11002{}MM11003" 
+                    data-names="Keramisch wastafelblad{}Mineraalmarmer wastafelblad{}Solid Surface wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM11001.png" 
+                    >
+                        <img src="assets/img/badmeubel/meubels/MM11001.png">
+                        <p class="txt">Onderkast met twee lades<br />80 x 51cm</p>
+                    </div>
+                    <div class="item"  
+                    data-id="MM11004{}MM11005{}MM11006"  
+                    data-names="Keramisch wastafelblad{}Mineraalmarmer wastafelblad{}Solid Surface wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM11004.png">
+                        <img src="assets/img/badmeubel/meubels/MM11004.png">
+                        <p class="txt">Onderkast met twee lades<br />100 x 51cm</p>
+                    </div>
+                    <div class="item"  
+                    data-id="MM11007{}MM11008{}MM11009"  
+                    data-names="Keramisch wastafelblad{}Mineraalmarmer wastafelblad{}Solid Surface wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM11007.png">
+                        <img src="assets/img/badmeubel/meubels/MM11007.png">
+                        <p class="txt">Onderkast met twee lades<br />120 x 51cm</p>
+                    </div>
+                    <div class="item"  
+                    data-id="MM11010{}MM11011{}MM11012" 
+                    data-names="Keramisch wastafelblad{}Mineraalmarmer wastafelblad{}Solid Surface wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM11010.png">
+                        <img src="assets/img/badmeubel/meubels/MM11010.png">
+                        <p class="txt">Onderkast met vier lades<br />120 x 51cm</p>
+                    </div>
+                    <div class="item"  
+                    data-id="MM11013{}MM11014{}MM11015" 
+                    data-names="Keramisch wastafelblad{}Mineraalmarmer wastafelblad{}Solid Surface wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM11013.png">
+                        <img src="assets/img/badmeubel/meubels/MM11013.png">
+                        <p class="txt">Onderkast met vier lades<br />140 x 51cm</p>
+                    </div>
+                    <div class="item"  data-id="MM21001{}MM21002" 
+                    data-names="Keramisch wastafelblad{}Mineraalmarmer wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM21001.png">
+                        <img src="assets/img/badmeubel/meubels/MM21001.png">
+                        <p class="txt">Onderkast met twee lades<br />80 x 40cm</p>
+                    </div>
+                    <div class="item"  
+                    data-id="MM21004{}MM21005"
+                    data-names="Keramisch wastafelblad{}Mineraalmarmer wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM21004.png">
+                        <img src="assets/img/badmeubel/meubels/MM21004.png">
+                        <p class="txt">Onderkast met twee lades<br />100 x 40cm</p>
+                    </div>
+                    <div class="item"  
+                    data-id="MM21007" 
+                    data-names="Keramisch wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM21007.png">
+                        <img src="assets/img/badmeubel/meubels/MM21007.png">
+                        <p class="txt">Onderkast met vier lades<br />120 x 40cm</p>
+                    </div>
+                    <div class="item"  
+                    data-id="MM31004"
+                    data-names="Keramisch wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM31004.png">
+                        <img src="assets/img/badmeubel/meubels/MM31004.png">
+                        <p class="txt">Wastafel voor 2 kranen; onderkast met twee lades 100 x 45cm</p>
+                    </div>
+                    <div class="item"  
+                    data-id="MM31007" 
+                    data-names="Keramisch wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM31007.png">
+                        <img src="assets/img/badmeubel/meubels/MM31007.png">
+                        <p class="txt">Wastafel voor 2 kranen; onderkast met vier lades 120 x 45cm</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="placeholder__slider__meubels__materiaal">
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__materiaal"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__materiaal"><span class="icon-arrowRight"></span></div>
+                <div class="slider__materiaal" id="slider__materiaal">
+                    
+                </div>
+            </div>
+
+
+            <div class="placeholder_slider__meubels__wastafel">
+                <div class="slider__wastafels" id="slider__wastafels">
+                    
+                </div>
+            </div>
+
+            
+            
+        </div>
+
+
+
+        <div class="steps step__2">
+
+            <div class="bottomRed">
+                <a href="#" class="btnBottom btnSamenstelilng btnRight btnSmall">Overzicht samenstelling</a>
+                <a href="#" class="btnWhite btnSmall btnRight btnKiesKleur">Kies je kleur</a>
+
+                <div class="btnAdd btnWhite btnRight btnSmall" id="btn__2" data-id="">Toevoegen</div>
+            </div>
+            <div class="bottomNav">
+                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
+                <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> Kleur</div>
+
+                <div class="reset__step2">Opnieuw beginnen</div>
+
+            </div>
+
+
+
+
+
+                <div class="fontijn__voorbeeld makeBig">
+
+                </div>
+
+            <div class="placeholder__slider__fontijn">
+
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__fontijn"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__fontijn"><span class="icon-arrowRight"></span></div>
+                <div class="slider__fontijn" id="slider__fontijn">
+                    <div class="item" 
+                    data-id="MM41801DX" 
+                    data-names="" 
+                    data-item="assets/img/fontijntje/meubels/MM41801DX.png" 
+                    >
+                        <img src="assets/img/fontijntje/meubels/MM41801DX.png">
+                        <p class="txt">Fonteinmeubel rechts<br />45cm breed, 25cm diep</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="MM41801SX" 
+                    data-names="" 
+                    data-item="assets/img/fontijntje/meubels/MM41801SX.png" 
+                    >
+                        <img src="assets/img/fontijntje/meubels/MM41801SX.png">
+                        <p class="txt">Fonteinmeubel links<br />45cm breed, 25cm diep</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="placeholder__slider__fontijntje__materiaal">
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__materiaal__fontijntje"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__materiaal__fontijntje"><span class="icon-arrowRight"></span></div>
+                <div class="slider__materiaal__fontijntje" id="slider__materiaal__fontijntje">
+                    
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="steps step__3">
+            
+
+            <div class="bottomRed">
+                <a href="#" class="btnBottom btnSamenstelilng btnRight btnSmall">Overzicht samenstelling</a>
+                <a href="#" class="btnWhite btnSmall btnRight btnKiesKleur">Kies je kleur</a>
+
+                <div class="btnAdd btnWhite btnRight btnSmall" id="btn__3" data-id="">Toevoegen</div>
+            </div>
+            <div class="bottomNav">
+                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
+                <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> Kleur</div>
+
+                <div class="reset__step3">Opnieuw beginnen</div>
+
+            </div>
+
+
+
+
+
+                <div class="kasten__voorbeeld makeBig">
+
+                </div>
+
+            <div class="placeholder__slider__kasten">
+
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__kasten"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__kasten"><span class="icon-arrowRight"></span></div>
+                <div class="slider__kasten" id="slider__kasten">
+                    <div class="item" 
+                    data-id="CP621RH" 
+                    data-names="" 
+                    data-item="assets/img/kasten/meubels/CP621RH.png" 
+                    >
+                        <img src="assets/img/kasten/meubels/CP621RH.png">
+                        <p class="txt">Hoge kast, rechts, met 2 deuren<br />35cm breed, 165cm hoog, 35cm diep</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="CP621LH" 
+                    data-names="" 
+                    data-item="assets/img/kasten/meubels/CP621LH.png" 
+                    >
+                        <img src="assets/img/kasten/meubels/CP621LH.png">
+                        <p class="txt">Hoge kast, links, met 2 deuren<br />35cm breed, 165cm hoog, 35cm diep</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="CP622RH" 
+                    data-names="" 
+                    data-item="assets/img/kasten/meubels/CP622RH.png" 
+                    >
+                        <img src="assets/img/kasten/meubels/CP622RH.png">
+                        <p class="txt">Hoge kast, rechts, met 2 deuren<br />35cm breed, 165cm hoog,  25cm diep</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="CP622LH" 
+                    data-names="" 
+                    data-item="assets/img/kasten/meubels/CP622LH.png" 
+                    >
+                        <img src="assets/img/kasten/meubels/CP622LH.png">
+                        <p class="txt">Hoge kast, links, met 2 deuren<br />35cm breed, 165cm hoog,  25cm diep</p>
+                    </div>
+
+                    
+
+                </div>
+            </div>
+
+            <div class="placeholder__slider__kasten__materiaal">
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__materiaal__kasten"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__materiaal__kasten"><span class="icon-arrowRight"></span></div>
+                <div class="slider__materiaal__kasten" id="slider__materiaal__kasten">
+                    
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+        <div class="steps step__4">
+            
+
+
+            <div class="bottomRed">
+                <a href="#" class="btnBottom btnSamenstelilng btnRight btnSmall">Overzicht samenstelling</a>
+                <a href="#" class="btnWhite btnSmall btnRight btnKiesKleur">Kies je kleur</a>
+
+                <div class="btnAdd btnWhite btnRight btnSmall" id="btn__4" data-id="">Toevoegen</div>
+            </div>
+            <div class="bottomNav">
+                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
+                <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> Kleur</div>
+
+                <div class="reset__step4">Opnieuw beginnen</div>
+
+            </div>
+
+
+
+
+
+                <div class="spiegelkasten__voorbeeld makeBig">
+
+                </div>
+
+            <div class="placeholder__slider__spiegelkasten">
+
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__spiegelkasten"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__spiegelkasten"><span class="icon-arrowRight"></span></div>
+                <div class="slider__spiegelkasten" id="slider__spiegelkasten">
+                    <div class="item" 
+                    data-id="SC0004L" 
+                    data-names="" 
+                    data-item="assets/img/spiegelkasten/meubels/SC0004L.png" 
+                    >
+                        <img src="assets/img/spiegelkasten/meubels/SC0004L.png">
+                        <p class="txt">Spiegelkast, 1 deur <br />
+                        45cm breed, 14cm diep (t.b.v. fonteinmeubel) </p>
+                    </div>
+
+                </div>
+
+                <div class="slider__spiegelkasten" id="slider__spiegelkasten">
+                    <div class="item" 
+                    data-id="SC0008L" 
+                    data-names="" 
+                    data-item="assets/img/spiegelkasten/meubels/SC0008L.png" 
+                    >
+                        <img src="assets/img/spiegelkasten/meubels/SC0008L.png">
+                        <p class="txt">Spiegelkast, 2 deuren <br />
+                        80cm breed, 14cm diep </p>
+                    </div>
+
+                </div>
+
+                <div class="slider__spiegelkasten" id="slider__spiegelkasten">
+                    <div class="item" 
+                    data-id="SC1010L" 
+                    data-names="" 
+                    data-item="assets/img/spiegelkasten/meubels/SC1010L.png" 
+                    >
+                        <img src="assets/img/spiegelkasten/meubels/SC1010L.png">
+                        <p class="txt">Spiegelkast, 2 deuren <br />
+                        100cm breed, 14cm diep </p>
+                    </div>
+
+                </div>
+
+                <div class="slider__spiegelkasten" id="slider__spiegelkasten">
+                    <div class="item" 
+                    data-id="SC012L" 
+                    data-names="" 
+                    data-item="assets/img/spiegelkasten/meubels/SC012L.png" 
+                    >
+                        <img src="assets/img/spiegelkasten/meubels/SC012L.png">
+                        <p class="txt">Spiegelkast, 3 deuren <br />
+                        120cm breed, 14cm diep </p>
+                    </div>
+
+                </div>
+
+                <div class="slider__spiegelkasten" id="slider__spiegelkasten">
+                    <div class="item" 
+                    data-id="SC014L" 
+                    data-names="" 
+                    data-item="assets/img/spiegelkasten/meubels/SC014L.png" 
+                    >
+                        <img src="assets/img/spiegelkasten/meubels/SC014L.png">
+                        <p class="txt">Spiegelkast, 4 deuren <br />
+                        140cm breed, 14cm diep </p>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="placeholder__slider__spiegelkasten__materiaal">
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__materiaal__spiegelkasten"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__materiaal__spiegelkasten"><span class="icon-arrowRight"></span></div>
+                <div class="slider__materiaal__spiegelkasten" id="slider__materiaal__spiegelkasten">
+                    
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <div class="steps step__5">
+            <div class="bottomRed">
+                <a href="#" class="btnBottom btnSamenstelilng btnRight btnSmall">Overzicht samenstelling</a>
+                <a href="#" class="btnWhite btnSmall btnRight btnKiesAfmeting">Kies je afmeting</a>
+
+                <div class="btnAdd btnWhite btnRight btnSmall" id="btn__5" data-id="">Toevoegen</div>
+            </div>
+            <div class="bottomNav">
+                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
+                <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> Afmeting</div>
+
+                <div class="reset__step5">Opnieuw beginnen</div>
+
+            </div>
+
+
+                <div class="spiegel__voorbeeld makeBig">
+
+
+                </div>
+
+            
+            <div class="placeholder__slider__spiegel">
+
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__spiegel"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__spiegel"><span class="icon-arrowRight"></span></div>
+                <div class="slider__spiegel" id="slider__spiegel">
+                    
+
+                    <div class="item" 
+                    data-id="SP1080{}SP1100{}SP1120{}SP1140" 
+                    data-names="Spiegel 'Lazise', 80cm{}Spiegel 'Lazise', 100cm{}Spiegel 'Lazise', 120cm{}Spiegel 'Lazise', 140cm" 
+                    data-item="assets/img/spiegels/SP1120.png" 
+                    >
+                        <img src="assets/img/spiegels/SP1120.png">
+                        <p class="txt">Spiegel met horizontale verlichtingsbaan, incl spiegelverwarming</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="SP2080{}SP2100{}SP2120{}SP2140" 
+                    data-names="Spiegel 'Bardolino', 80cm{}Spiegel 'Bardolino', 100cm{}Spiegel 'Bardolino', 120cm{}Spiegel 'Bardolino', 140cm" 
+                    data-item="assets/img/spiegels/SP2120.png" 
+                    >
+                        <img src="assets/img/spiegels/SP2120.png">
+                        <p class="txt">Spiegel met horizontale verlichtingsbaan en indirecte verlichting onder, incl spiegelverwarming</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="SP3080{}SP3100{}SP3120{}SP3140" 
+                    data-names="Spiegel 'Desenzano', 80cm{}Spiegel 'Desenzano', 100cm{}Spiegel 'Desenzano', 120cm{}Spiegel 'Desenzano', 140cm" 
+                    data-item="assets/img/spiegels/SP3120.png" 
+                    >
+                        <img src="assets/img/spiegels/SP3120.png">
+                        <p class="txt">Spiegel met horiz. verl. baan, ind. verl.onder, met verlichte scheerspiegel, incl spiegelverwarming</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="SP4080{}SP4100{}SP4120{}SP4140" 
+                    data-names="Spiegel 'Garda', 80cm{}Spiegel 'Garda', 100cm{}Spiegel 'Garda', 120cm{}Spiegel 'Garda', 140cm" 
+                    data-item="assets/img/spiegels/SP4120.png" 
+                    >
+                        <img src="assets/img/spiegels/SP4120.png">
+                        <p class="txt">Spiegel met indirecte verlichting boven en onder, incl spiegelverwarming</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="SP5080{}SP5100{}SP5120{}SP5140" 
+                    data-names="Spiegel 'Peschiera', 80cm{}Spiegel 'Peschiera', 100cm{}Spiegel 'Peschiera', 120cm{}Spiegel 'Peschiera', 140cm" 
+                    data-item="assets/img/spiegels/SP5120.png" 
+                    >
+                        <img src="assets/img/spiegels/SP5120.png">
+                        <p class="txt">Spiegel met indirecte verlichting rondom, incl spiegelverwarming</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="SP6080{}SP6100{}SP6120{}SP6140" 
+                    data-names="Spiegel 'Sirmione', 80cm{}Spiegel 'Sirmione', 100cm{}Spiegel 'Sirmione', 120cm{}Spiegel 'Sirmione', 140cm" 
+                    data-item="assets/img/spiegels/SP6120.png" 
+                    >
+                        <img src="assets/img/spiegels/SP6120.png">
+                        <p class="txt">Spiegel met verlichtingsbaan rondom, incl spiegelverwarming</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="SP7080{}SP7100{}SP7120{}SP7140" 
+                    data-names="Spiegel 'Pacengo', 80cm{}Spiegel 'Pacengo', 100cm{}Spiegel 'Pacengo', 120cm{}Spiegel 'Pacengo', 140cm" 
+                    data-item="assets/img/spiegels/SP7120.png" 
+                    >
+                        <img src="assets/img/spiegels/SP7120.png">
+                        <p class="txt">Spiegel met industrieel zwart frame, met verticale verlichtingsbanen, incl spiegelverwarming</p>
+                    </div>
+
+                    <div class="item" 
+                    data-id="SP0080{}SP0100{}SP0120" 
+                    data-names="Spiegel 'Salo', 80cm{}Spiegel 'Salo', 100cm{}Spiegel 'Salo', 120cm" 
+                    data-item="assets/img/spiegels/SP0120.png" 
+                    >
+                        <img src="assets/img/spiegels/SP0120.png">
+                        <p class="txt">Ronde spiegel, met rondom ledverlichting</p>
+                    </div>
+
+                    
+
+                    
+                </div>
+            </div>
+
+            <div class="placeholder__slider__spiegel__afmeting">
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__spiegel__afmeting"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__spiegel__afmeting"><span class="icon-arrowRight"></span></div>
+                <div class="slider__spiegel__afmeting" id="slider__spiegel__afmeting">
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="steps samenstelling">
+            
+            <div class="overzicht__samenstelling">
+                <h1>Overzicht van uw samenstelling</h1>
+                <div class="imageOverview">
+                    <div class="meubel"></div>
+                    <div class="spiegel"></div>
+                    <div class="fontein"></div>
+                    <div class="kasten"></div>
+                    <div class="spiegelkasten"></div>
+                </div>
+                <table width="100%" class="tbl__samenstelling" cellpadding="5" cellspacing="0" border="0">
+                    <tr class="firstRow">
+                        <td>Artikelnummer</td>
+                        <td>Artikel</td>
+                        <td>Kleur</td>
+                        <td>Prijs</td>
+                    </tr>
+                    <tr class="meubel">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="spiegel">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="fontein">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="kast">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="spiegelkast">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+   
+</body>
+
+</html>

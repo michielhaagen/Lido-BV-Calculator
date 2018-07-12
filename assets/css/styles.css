@@ -1,0 +1,753 @@
+@font-face {
+	font-family: 'icomoon';
+	src:  url('../fonts/icomoon.eot?wxqiwt');
+	src:  url('../fonts/icomoon.eot?wxqiwt#iefix') format('embedded-opentype'),
+	url('../fonts/icomoon.ttf?wxqiwt') format('truetype'),
+	url('../fonts/icomoon.woff?wxqiwt') format('woff'),
+	url('../fonts/icomoon.svg?wxqiwt#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrowLeft:before {
+	content: "\e900";
+	color: #d22a37;
+}
+.icon-arrowRight:before {
+	content: "\e901";
+	color: #d22a37;
+}
+
+@font-face {
+    font-family: 'AutorThin';
+    src: url('../fonts/AutorThin.eot');
+    src: url('../fonts/AutorThin.eot') format('embedded-opentype'),
+         url('../fonts/AutorThin.woff2') format('woff2'),
+         url('../fonts/AutorThin.woff') format('woff'),
+         url('../fonts/AutorThin.ttf') format('truetype'),
+         url('../fonts/AutorThin.svg#AutorThin') format('svg');
+}
+@font-face {
+    font-family: 'AutorRegular';
+    src: url('../fonts/AutorRegular.eot');
+    src: url('../fonts/AutorRegular.eot') format('embedded-opentype'),
+         url('../fonts/AutorRegular.woff2') format('woff2'),
+         url('../fonts/AutorRegular.woff') format('woff'),
+         url('../fonts/AutorRegular.ttf') format('truetype'),
+         url('../fonts/AutorRegular.svg#AutorRegular') format('svg');
+}
+@font-face {
+    font-family: 'AutorBold';
+    src: url('../fonts/AutorBold.eot');
+    src: url('../fonts/AutorBold.eot') format('embedded-opentype'),
+         url('../fonts/AutorBold.woff2') format('woff2'),
+         url('../fonts/AutorBold.woff') format('woff'),
+         url('../fonts/AutorBold.ttf') format('truetype'),
+         url('../fonts/AutorBold.svg#AutorBold') format('svg');
+}
+
+@font-face {
+    font-family: 'AutorExtraBold';
+    src: url('../fonts/AutorExtraBold.eot');
+    src: url('../fonts/AutorExtraBold.eot') format('embedded-opentype'),
+         url('../onts/AutorExtraBold.woff2') format('woff2'),
+         url('../fonts/AutorExtraBold.woff') format('woff'),
+         url('../fonts/AutorExtraBold.ttf') format('truetype'),
+         url('../fonts/AutorExtraBold.svg#AutorExtraBold') format('svg');
+}
+
+body
+{
+	font-family: 'AutorRegular';
+	margin: 0; padding: 0;
+}
+.cacheImage
+{
+	position: fixed;
+	top: -10px;
+	left: -10px;
+	height: 1px !important;
+	width: 1px !important;
+}
+.screensaver, .loading
+{
+	position: absolute;
+	left: 0px;
+	top: 100px;
+	width: 100vw;
+	height: calc(100vh - 100px);
+	z-index: 9998;
+}
+.loading 
+{
+	position: fixed;
+	background-size: cover;
+	z-index:999999;
+}
+.screensaver .kader, .loading .kader
+{
+	position: absolute;
+	height: 376px;
+	top: calc(50% - (376px / 2));
+	left: 40px;
+	right: 40px;
+	width: calc(100% - 80px);
+	box-sizing: border-box;
+	border: 4px solid rgb(255,255,255);
+	padding: 40px;
+	z-index: 9;
+}
+.screensaver .kader .right, .loading .kader .right
+{
+	position: relative;
+	float: right;
+	margin: 0px;
+	width: 240px;
+	color: rgb(255,255,255);
+	font-size: 38px;
+	line-height: 1.5em;
+	font-family: "AutorThin";
+	/*text-shadow: 1px 1px 0 #000;*/
+
+}
+.screensaver .kader .right p, .loading .right p
+{
+	margin: 0;
+}
+.screensaver .kader .right p .btnWhite
+{
+	width: calc(100% - 35px - 15px);
+}
+
+.screensaver .text
+{
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	text-align: center;
+	z-index: 9;
+	font-family: "AutorBold";
+}
+.screensaver #slick__screensaver
+{
+	position: relative;
+	width: 100vw;
+	height: calc(100vh - 100px);
+}
+.screensaver #slick__screensaver .slide
+{
+	margin: 0;
+	width: 100vw;
+	height: calc(100vh - 100px);
+	background-size: cover;
+	background-position: center center;
+}
+.btnWhite
+{
+	padding:  0px 35px 0px 15px;
+	font-family: "AutorRegular";
+	font-size: 13px;
+	color: rgb(210,42,55);
+	background-color: rgb(255,255,255);
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	line-height: 40px;
+}
+.btnWhite.btnAdd
+{
+	color: rgb(4,145,0);
+}
+.btnBottom
+{
+	padding:  0px 35px 0px 15px;
+	font-family: "AutorRegular";
+	font-size: 13px;
+	color: rgb(255,255,255);
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	line-height: 40px;
+	font-family: 'AutorRegular';
+}
+
+.btnWhite.btnSmall, .btnBottom.btnSmall
+{
+	line-height: 30px;
+	font-size: 12px;
+}
+.btnWhite.btnRight::after, .btnBottom.btnRight::after
+{
+
+	right: 10px;
+	font-size: 14px;
+	top: 13px;
+	content: "\e901";
+	position: absolute;
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.btnWhite.btnSmall.btnRight::after, .btnBottom.btnSmall.btnRight::after
+{
+	top: 8px;
+}
+.logo
+{
+	position: fixed;
+	top: 0px;
+	left: 10px;
+	width: 100px;
+	background-color: rgb(255,255,255);
+	z-index: 9999;
+}
+.logo img
+{
+	margin: 10px;
+	max-width: 80px;
+	max-height: 80px;
+	width: auto;
+	height: auto;
+}
+
+.navigation__top
+{
+	position: absolute;
+	left: 120px;
+	top: 0px;
+	width: calc(100vw - 120px);
+	height: 100px;
+	display: none;
+}
+.navigation__top .item
+{
+	position: relative;
+	float: left;
+	height: 70px;
+	line-height: 30px;
+	box-sizing: border-box;
+	padding: 20px;
+
+	margin: 0 10px;
+	display: inline-block;
+	cursor: pointer;
+}
+.navigation__top .item span
+{
+	text-transform: lowercase;
+	font-size: 17px;
+}
+.navigation__top .item.active span
+{
+	border-bottom: 4px solid  rgb(211,43,56);
+}
+
+.navigation__top .overzicht
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 70px;
+	box-sizing: border-box;
+	padding: 20px;
+	font-size: 12px;
+	line-height: 30px;
+	border-top: 1px solid rgb(190,190,190);
+	background-color: rgb(255,255,255);
+	color: rgb(211,43,56);
+}
+.calculator__content
+{
+	position: absolute;
+	left: 0px;
+	top: 100px;
+	width: 100%;
+	height: calc(100vh - 100px);
+}
+.calculator__content .bottomRed {
+	height: 40px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	background-color: rgb(211,43,56);
+}
+.calculator__content .bottomRed .btnBottom
+{
+	position: relative;
+	margin: 5px 10px;
+}
+.calculator__content .bottomRed .btnWhite
+{
+	display: none;
+	float: right;
+	position: relative;
+	margin: 5px 10px;
+}
+.calculator__content .bottomNav {
+	height: 40px;
+	position: absolute;
+	bottom: 220px;
+	left: 0px;
+	width: 100%;
+	background-color: rgb(240,240,240);
+	z-index: 99;
+}
+.calculator__content .bottomNav .bottomNavItem
+{
+	float: left;
+	line-height: 40px;
+	font-size: 17px;
+	margin: 0px 10px 0px 30px;
+	display: inline-block;
+	font-family: "AutorRegular";
+	color: rgb(116,116,116);
+}
+.calculator__content .bottomNav .bottomNavItem .nav__step__box
+{
+	margin: 0px 5px;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	line-height: 20px;
+	text-align: center;
+	color: rgb(255,255,255);
+	font-family: "AutorRegular";
+	background-color: rgb(116,116,116);
+}
+.calculator__content .bottomNav .bottomNavItem.active .nav__step__box
+{
+	background-color: rgb(210,42,55);
+}
+.calculator__content .bottomNav .bottomNavItem.active
+{
+	color: rgb(50,50,50);
+}
+.reset__step1, .reset__step2, .reset__step4, .reset__step4, .reset__step5
+{
+	float: right;
+	margin: 5px 10px;
+	line-height: 20px;
+	font-size: 14px;
+
+	color: rgb(116,116,116);
+}
+
+
+.calculator__content .steps
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	pointer-events: none;
+}
+.calculator__content .steps.active
+{
+	pointer-events: all;
+	opacity: 1;
+	 -webkit-transition: all 0.5s; /* Safari */
+    transition: all 0.5s;
+}
+
+.hoverPage
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0);
+	pointer-events: none;
+	z-index: 150;
+}
+.hoverPage.active
+{
+	pointer-events: all;
+	background-color: rgba(0,0,0,0.7);
+	 -webkit-transition: all 0.5s; /* Safari */
+    transition: all 0.5s;
+}
+.vergroot
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 484px;
+	box-sizing: border-box;
+	padding: 20px;
+	text-align: center;
+	z-index: 160;
+	cursor: zoom-in;
+}
+.vergroot.active
+{
+	z-index: 160;
+}
+.vergroot.active, .vergroot div
+{
+	width: 100% !important;
+	height: 100% !important;
+}
+.vergroot.active img
+{
+	max-width: 100% !important;
+	max-height: 100% !important;
+	width: auto !important;
+	height: auto !important;
+	 -webkit-transition: all 0.5s; /* Safari */
+    transition: all 0.5s;
+}
+
+.badmeubel__voorbeeld
+{
+	position: absolute;
+	left: 0px;
+	top: -40px;
+	width: 100%;
+	height: 484px;
+	box-sizing: border-box;
+	padding: 20px;
+	text-align: center;
+	z-index: 9;
+}
+.wastafel__voorbeeld
+{
+	position: absolute;
+	left: 0px;
+	top: -40px;
+	width: 100%;
+	height: 484px;
+	box-sizing: border-box;
+	padding: 20px;
+	text-align: center;
+	z-index: 10;
+}
+.fontijn__voorbeeld, .kasten__voorbeeld, .spiegelkasten__voorbeeld
+{
+	position: absolute;
+	left: 0px;
+	top:-40px;
+	width: 100%;
+	height: 484px;
+	box-sizing: border-box;
+	padding: 20px;
+	text-align: center;
+	z-index: 9;
+}
+.spiegel__voorbeeld
+{
+	position: absolute;
+	left: 0px;
+	top: -40px;;
+	width: 100%;
+	height: 484px;
+	box-sizing: border-box;
+	padding: 20px;
+	text-align: center;
+	z-index: 9;
+}
+.badmeubel__voorbeeld img, .wastafel__voorbeeld img, .fontijn__voorbeeld img, .spiegel__voorbeeld img, .kasten__voorbeeld img, .spiegelkasten__voorbeeld img
+{
+	width: 400px;
+	height: 400px;
+}
+
+.arrowLeft, .arrowRight
+{
+	position: absolute;
+	left: 0px;
+	height: 100%;
+	width: 40px;
+	background-color:rgb(255,255,255);
+	font-size: 40px;
+	z-index: 99;
+	text-align: center;
+	border-right: 1px solid rgb(240,240,240);
+}
+.arrowLeft span:before, .arrowRight span:before
+{
+	color: rgb(116,116,116);
+}
+.arrowRight
+{
+	left: auto;
+	right: 0px;
+	border-left: 1px solid rgb(240,240,240);
+	border-right: 0px;
+}
+.arrowLeft span, .arrowRight span
+{
+	position: absolute;
+	top: calc(50% - 10px);
+	width: 100%;
+	left: 0px;
+	line-height: 1em;
+	font-size: 20px;
+}
+.placeholder__slider__meubels, .placeholder__slider__fontijn, .placeholder__slider__kasten, .placeholder__slider__spiegelkasten
+{
+	position: absolute;
+
+	bottom: 40px;
+	width: 100%;
+	height: 180px;
+	left: 0px;
+}
+.placeholder__slider__spiegel
+{
+	position: absolute;
+	bottom: 40px;
+	width: 100%;
+	height: 220px;
+	left: 0px;
+}
+.step__5 .bottomNav{
+	bottom: 260px;
+}
+.placeholder__slider__meubels .slider__meubels .item, .placeholder__slider__fontijn .slider__fontijn .item, .placeholder__slider__kasten .slider__kasten .item, .placeholder__slider__spiegelkasten .slider__spiegelkasten .item
+{
+	position: relative;
+	height: 180px;
+	width: 200px;
+	overflow: hidden;
+}
+.placeholder__slider__spiegel .slider__spiegel .item
+{
+	position: relative;
+	height: 220px;
+	width: 200px;
+	overflow: hidden;
+}
+/*.placeholder__slider__fontijn .slider__fontijn .item:first-child, .placeholder__slider__fontijn .slider__fontijn .item:first-child, .placeholder__slider__spiegel .slider__spiegel .item:first-child, .placeholder__slider__kasten .slider__kasten .item:first-child, .placeholder__slider__spigelkasten .slider__spiegelkasten .item:first-child, .placeholder__slider__spiegel__afmeting .slider__spiegel__afmeting .item:first-child
+{
+	border-left: 1px solid rgb(190,190,190);
+}*/
+.placeholder__slider__meubels .slider__meubels .item .txt, .placeholder__slider__fontijn .slider__fontijn .item .txt, .placeholder__slider__kasten .slider__kasten .item .txt, .placeholder__slider__spiegelkasten .slider__spiegelkasten .item .txt, .placeholder__slider__spiegel .slider__spiegel .item .txt
+{
+	position: absolute;
+    text-align: center;
+    bottom: 10px;
+    width: 100%;
+    font-size: 12px;
+    margin: 0;
+}
+.calculator__content .item.selected
+{
+	background-color: rgb(240,240,240);
+}
+.placeholder__slider__meubels .slider__meubels .item img, .placeholder__slider__fontijn .slider__fontijn .item img, .placeholder__slider__kasten .slider__kasten .item img, .placeholder__slider__spiegelkasten .slider__spiegelkasten .item img, .placeholder__slider__spiegel .slider__spiegel .item img
+{
+	width: 180px;
+	height: 180px;
+	margin: -10px 10px;
+
+}
+
+.placeholder_slider__meubels__wastafel
+{
+	display: none;
+	position: absolute;
+	bottom: 40px;
+	width: 100%;
+	height: 180px;
+	left: 0px;	
+	text-align: center;
+}
+.placeholder_slider__meubels__wastafel .slider__wastafels .item
+{
+	position: relative;
+	
+	height: 180px;
+	width: 180px;
+	overflow: hidden;
+	display: inline-block;
+}
+.placeholder_slider__meubels__wastafel .slider__wastafels .item:first-child
+{
+}
+.placeholder_slider__meubels__wastafel .slider__wastafels .item img
+{
+	width: 120px;
+	height: 120px;
+}
+.placeholder_slider__meubels__wastafel .slider__wastafels .txt
+{
+	position: absolute;
+    text-align: center;
+    bottom: 10px;
+    width: 100%;
+    font-size: 12px;
+    margin: 0;
+}
+
+.placeholder__slider__meubels__materiaal, .placeholder__slider__fontijntje__materiaal, .placeholder__slider__kasten__materiaal,  .placeholder__slider__spiegelkasten__materiaal
+{
+	display: none;
+	position: absolute;
+	bottom: 40px;
+	width: 100%;
+	height: 180px;
+	left: 0px;
+}
+ .placeholder__slider__spiegel__afmeting
+{
+	display: none;
+	position: absolute;
+	 bottom: 40px;
+	 width: 100%;
+	 height: 220px;
+	left: 0px;
+}
+
+
+.placeholder__slider__meubels__materiaal .slider__materiaal .item, .placeholder__slider__fontijntje__materiaal .slider__materiaal__fontijntje .item, .placeholder__slider__kasten__materiaal .slider__materiaal__kasten .item,  .placeholder__slider__spiegelkasten__materiaal .slider__materiaal__spiegelkasten .item
+{
+	position: relative;
+	height: 180px;
+	width: 180px;
+	overflow: hidden;
+}
+.placeholder__slider__spiegel__afmeting .slider__spiegel__afmeting .item
+{
+	position: relative;
+	height: 220px;
+	width: 220px;
+	overflow: hidden;
+}
+.placeholder__slider__meubels__materiaal .slider__materiaal .item img, .placeholder__slider__fontijntje__materiaal .slider__materiaal__fontijntje .item img,  .placeholder__slider__kasten__materiaal .slider__materiaal__kasten .item img, .placeholder__slider__spiegelkasten__materiaal .slider__materiaal__spiegelkasten .item img
+{
+	width: 100px;
+	height: 100px;
+	margin: 40px;
+}
+.placeholder__slider__spiegel__afmeting .slider__spiegel__afmeting .item img
+{
+	width: 180px;
+	height: 180px;
+	margin: 10px;
+}
+.placeholder__slider__meubels__materiaal .slider__materiaal .item .txt, .placeholder__slider__fontijntje__materiaal .slider__materiaal__fontijntje .item .txt, .placeholder__slider__kasten__materiaal .slider__materiaal__kasten .item .txt, .placeholder__slider__spiegelkasten__materiaal .slider__materiaal__spiegelkasten .item .txt
+{
+	position: absolute;
+    text-align: center;
+    bottom: 10px;
+    width: 100%;
+    font-size: 12px;
+    margin: 0;
+}
+.placeholder__slider__spiegel__afmeting .slider__spiegel__afmeting .item .txt
+{
+	position: absolute;
+    text-align: center;
+    bottom: 10px;
+    width: 100%;
+    font-size: 12px;
+    margin: 0;
+}
+.overzicht__samenstelling
+{
+	margin: 20px;
+}
+.overzicht__samenstelling .imageOverview
+{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 400px;
+}
+.overzicht__samenstelling .imageOverview img
+{
+	position: absolute;
+	width: 300px;
+	height: 300px;
+}
+.overzicht__samenstelling .imageOverview .meubel
+{
+	position: absolute;
+	top: 100px;
+	left: 300px;
+	z-index: 10;
+}
+.overzicht__samenstelling .imageOverview .spiegel
+{
+	position: absolute;
+    top: -30px;
+    left: 260px;
+    z-index: 5;
+}
+.overzicht__samenstelling .imageOverview .fontein
+{
+	position: absolute;
+    top: 130px;
+    left: 0px;
+    z-index: 5;
+}
+.overzicht__samenstelling .imageOverview .kasten
+{
+	position: absolute;
+    top: 130px;
+    left: 0px;
+    z-index: 5;
+}
+.overzicht__samenstelling .imageOverview .spiegelkasen
+{
+	position: absolute;
+    top: 130px;
+    left: 0px;
+    z-index: 5;
+}
+.tbl__samenstelling tr
+{
+	height: 30px;
+}
+.tbl__samenstelling tr.firstRow
+{
+	background-color: rgb(211,43,56);
+	color: rgb(255,255,255);
+}
+.tbl__samenstelling div.img
+{
+	position: relative;
+	    height: 150px;
+}
+.tbl__samenstelling div.img img
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.tbl__samenstelling img
+{
+	height: 150px;
+	width: auto;
+}
