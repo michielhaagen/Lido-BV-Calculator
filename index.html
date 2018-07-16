@@ -37,7 +37,7 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-     <!-- CSS -->
+      <!-- CSS -->
     <link href="assets/css/styles.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/jquery.slick.css" rel="stylesheet" type="text/css" />
     <!-- /CSS -->
@@ -45,6 +45,9 @@
 
     <!-- JS -->
     <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.ui.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+
     <script src="assets/js/hai.vars.js" type="text/javascript"></script>
     <script src="assets/js/jquery.slick.min.js" type="text/javascript"></script>
     <script src="assets/js/hai.main.js" type="text/javascript"></script>
@@ -84,7 +87,6 @@
             <div class="slide" style="background-image: url('assets/img/screensaver/6.jpg');"></div>
             <div class="slide" style="background-image: url('assets/img/screensaver/7.jpg');"></div>
             <div class="slide" style="background-image: url('assets/img/screensaver/8.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/img/screensaver/9.jpg');"></div>
             <div class="slide" style="background-image: url('assets/img/screensaver/10.jpg');"></div>
             <div class="slide" style="background-image: url('assets/img/screensaver/11.jpg');"></div>
             <div class="slide" style="background-image: url('assets/img/screensaver/12.jpg');"></div>
@@ -97,12 +99,15 @@
 
 
     <div class="navigation__top">
-        <div class="item active" data-id="step__1"><span>Badmeubelen</span></div>
-        <div class="item" data-id="step__2"><span>Fonteinmeubel</span></div>
-        <div class="item" data-id="step__3"><span>Hoge kasten</span></div>
-        <div class="item" data-id="step__4"><span>Spiegelkasten</span></div>
+        <div class="item active" data-id="step__1"><span>Badmeubel</span></div>
+        <!-- <div class="item" data-id="step__2"><span>Fonteinmeubel</span></div> -->
+        
         <div class="item" data-id="step__5"><span>Spiegels</span></div>
+        <div class="item" data-id="step__4"><span>Spiegelkasten</span></div>
+        
+        <div class="item" data-id="step__3"><span>Hoge kasten</span></div>
 
+        <div class="resetAll"><span><a class="resetAll btnRed">Nieuwe configuratie</a></span></div>
         <!-- <div class="item overzicht" data-id="samenstelling">Bekijk samenstelling</div> -->
     </div>
 
@@ -110,31 +115,41 @@
         <div class="steps step__1 active">
             <div class="bottomRed">
                 <a href="#" class="btnBottom btnSamenstelilng btnRight btnSmall">Overzicht samenstelling</a>
+
                 <a href="#" class="btnWhite btnSmall btnRight btnKiesKleur">Kies je kleur</a>
                 <a href="#" class="btnWhite btnSmall btnRight btnKiesBlad">Kies je wastafel</a>
                 <div class="btnAdd btnWhite btnRight btnSmall" id="btn__1" data-id="">Opslaan</div>
             </div>
             <div class="bottomNav">
-                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> formaat</div>
+                <div class="navstep__1 reset__step1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> formaat</div>
                 <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> kleur</div>
                 <div class="navstep__3 nav__step bottomNavItem"><span class="nav__step__box">3</span> blad</div>
-                <div class="reset__step1">Opnieuw beginnen</div>
+
+                <div class="navstep__diepte">
+                <span class="txt">Kies diepte:</span>
+                    <div class="nav__step__depth nav__depth__51 active bottomNavItem" data-id="51"><span class="nav__step__box">51</span> cm</div>
+                    <div class="nav__step__depth nav__depth__45 bottomNavItem" data-id="45"><span class="nav__step__box">45</span> cm</div>
+                    <div class="nav__step__depth nav__depth__40 bottomNavItem" data-id="40"><span class="nav__step__box">40</span> cm</div>
+                </div>
+                
+
+                
 
             </div>
 
 
-            <div class="badmeubel__voorbeeld makeBig">
+            <div class="badmeubel__voorbeeld ">
 
             </div>
-            <div class="wastafel__voorbeeld makeBig">
+            <div class="wastafel__voorbeeld ">
                 
             </div>
 
 
-            <div class="placeholder__slider__meubels">
-                <div class="slider__arrow__prev arrowLeft" data-tag="slider__meubels"><span class="icon-arrowLeft"></span></div>
-                <div class="slider__arrow__next  arrowRight"  data-tag="slider__meubels"><span class="icon-arrowRight"></span></div>
-                <div class="slider__meubels" id="slider__meubels">
+            <div class="placeholder__slider__meubels depth__51">
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__meubels__51"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__meubels__51"><span class="icon-arrowRight"></span></div>
+                <div class="slider__meubels slider__meubels__51" id="slider__meubels__51">
                     <div class="item" 
                     data-id="MM11001{}MM11002{}MM11003" 
                     data-names="Keramisch wastafelblad{}Mineraalmarmer wastafelblad{}Solid Surface wastafelblad" 
@@ -171,6 +186,41 @@
                         <img src="assets/img/badmeubel/meubels/MM11013.png">
                         <p class="txt">Onderkast met vier lades<br />140 x 51cm</p>
                     </div>
+                    
+
+                </div>
+            </div>
+
+
+            <div class="placeholder__slider__meubels depth__45">
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__meubels__45"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__meubels__45"><span class="icon-arrowRight"></span></div>
+                <div class="slider__meubels slider__meubels__45" id="slider__meubels__45">
+                    
+                    <div class="item"  
+                    data-id="MM31004"
+                    data-names="Keramisch wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM31004.png">
+                        <img src="assets/img/badmeubel/meubels/MM31004.png">
+                        <p class="txt">Wastafel voor 2 kranen; onderkast met twee lades 100 x 45cm</p>
+                    </div>
+                    <div class="item"  
+                    data-id="MM31007" 
+                    data-names="Keramisch wastafelblad" 
+                    data-item="assets/img/badmeubel/meubels/MM31007.png">
+                        <img src="assets/img/badmeubel/meubels/MM31007.png">
+                        <p class="txt">Wastafel voor 2 kranen; onderkast met vier lades 120 x 45cm</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="placeholder__slider__meubels depth__40">
+                <div class="slider__arrow__prev arrowLeft" data-tag="slider__meubels__40"><span class="icon-arrowLeft"></span></div>
+                <div class="slider__arrow__next  arrowRight"  data-tag="slider__meubels__40"><span class="icon-arrowRight"></span></div>
+                <div class="slider__meubels slider__meubels__40" id="slider__meubels__40">
+                    
                     <div class="item"  data-id="MM21001{}MM21002" 
                     data-names="Keramisch wastafelblad{}Mineraalmarmer wastafelblad" 
                     data-item="assets/img/badmeubel/meubels/MM21001.png">
@@ -191,20 +241,7 @@
                         <img src="assets/img/badmeubel/meubels/MM21007.png">
                         <p class="txt">Onderkast met vier lades<br />120 x 40cm</p>
                     </div>
-                    <div class="item"  
-                    data-id="MM31004"
-                    data-names="Keramisch wastafelblad" 
-                    data-item="assets/img/badmeubel/meubels/MM31004.png">
-                        <img src="assets/img/badmeubel/meubels/MM31004.png">
-                        <p class="txt">Wastafel voor 2 kranen; onderkast met twee lades 100 x 45cm</p>
-                    </div>
-                    <div class="item"  
-                    data-id="MM31007" 
-                    data-names="Keramisch wastafelblad" 
-                    data-item="assets/img/badmeubel/meubels/MM31007.png">
-                        <img src="assets/img/badmeubel/meubels/MM31007.png">
-                        <p class="txt">Wastafel voor 2 kranen; onderkast met vier lades 120 x 45cm</p>
-                    </div>
+                    
 
                 </div>
             </div>
@@ -239,10 +276,10 @@
                 <div class="btnAdd btnWhite btnRight btnSmall" id="btn__2" data-id="">Toevoegen</div>
             </div>
             <div class="bottomNav">
-                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
+                <div class="navstep__1 reset__step2 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
                 <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> Kleur</div>
 
-                <div class="reset__step2">Opnieuw beginnen</div>
+                
 
             </div>
 
@@ -250,7 +287,7 @@
 
 
 
-                <div class="fontijn__voorbeeld makeBig">
+                <div class="fontijn__voorbeeld ">
 
                 </div>
 
@@ -302,10 +339,10 @@
                 <div class="btnAdd btnWhite btnRight btnSmall" id="btn__3" data-id="">Toevoegen</div>
             </div>
             <div class="bottomNav">
-                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
+                <div class="navstep__1 reset__step3 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
                 <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> Kleur</div>
 
-                <div class="reset__step3">Opnieuw beginnen</div>
+                
 
             </div>
 
@@ -313,7 +350,7 @@
 
 
 
-                <div class="kasten__voorbeeld makeBig">
+                <div class="kasten__voorbeeld ">
 
                 </div>
 
@@ -388,10 +425,10 @@
                 <div class="btnAdd btnWhite btnRight btnSmall" id="btn__4" data-id="">Toevoegen</div>
             </div>
             <div class="bottomNav">
-                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
+                <div class="navstep__1 reset__step4 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
                 <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> Kleur</div>
 
-                <div class="reset__step4">Opnieuw beginnen</div>
+                
 
             </div>
 
@@ -399,7 +436,7 @@
 
 
 
-                <div class="spiegelkasten__voorbeeld makeBig">
+                <div class="spiegelkasten__voorbeeld  ">
 
                 </div>
 
@@ -490,15 +527,15 @@
                 <div class="btnAdd btnWhite btnRight btnSmall" id="btn__5" data-id="">Toevoegen</div>
             </div>
             <div class="bottomNav">
-                <div class="navstep__1 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
+                <div class="navstep__1 reset__step5 nav__step active bottomNavItem"><span class="nav__step__box">1</span> Model</div>
                 <div class="navstep__2 nav__step bottomNavItem"><span class="nav__step__box">2</span> Afmeting</div>
 
-                <div class="reset__step5">Opnieuw beginnen</div>
+                
 
             </div>
 
 
-                <div class="spiegel__voorbeeld makeBig">
+                <div class="spiegel__voorbeeld ">
 
 
                 </div>
@@ -599,14 +636,27 @@
         </div>
         
         <div class="steps samenstelling">
-            
+            <div class="mailForm">
+                <div class="frame">
+                    <h1 class="kop1">Versturen naar e-mail</h1>
+                    <input type="text" name="naam" class="naam" placeholder="Naam"><br />
+                    <input type="text" name="email" class="mailadres" placeholder="E-mailadres"><br />
+                    <a class="btnSubmit btnRight">Verstuur</a>
+                    <p><br />
+                        <span class="closeScreen">Scherm sluiten</span></p>
+                    
+                </div>
+            </div>
             <div class="overzicht__samenstelling">
-                <h1 class="kop1">Overzicht van uw samenstelling</h1>
+                <h1 class="kop1">Overzicht van je configuratie</h1>
+                <p>Klik in de tabel op het product om het product te selecteren en te kunnen verplaatsen</p>
+                <p><a class="btnSendToMail btnRight">Verstuur naar e-mail</a></p>
                 <div class="imageOverview">
                     <div class="meubel"></div>
                     <div class="spiegel"></div>
                     <div class="fontein"></div>
                     <div class="kasten"></div>
+                    <div class="kasten_rechts"></div>
                     <div class="spiegelkasten"></div>
                 </div>
                 <table width="100%" class="tbl__samenstelling" cellpadding="5" cellspacing="0" border="0">
@@ -626,17 +676,12 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr class="fontein">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
                     <tr class="kast">
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr class="spiegelkast">
+                    <tr class="kast2">
                         <td></td>
                         <td></td>
                         <td></td>

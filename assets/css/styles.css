@@ -65,7 +65,7 @@
     font-family: 'AutorExtraBold';
     src: url('../fonts/AutorExtraBold.eot');
     src: url('../fonts/AutorExtraBold.eot') format('embedded-opentype'),
-         url('../onts/AutorExtraBold.woff2') format('woff2'),
+         url('../fonts/AutorExtraBold.woff2') format('woff2'),
          url('../fonts/AutorExtraBold.woff') format('woff'),
          url('../fonts/AutorExtraBold.ttf') format('truetype'),
          url('../fonts/AutorExtraBold.svg#AutorExtraBold') format('svg');
@@ -81,6 +81,7 @@ body
 	font-family: 'AutorRegular';
 	margin: 0; padding: 0;
 	overflow: hidden;
+	font-size: 14px;
 }
 .cacheImage
 {
@@ -176,6 +177,33 @@ body
 	text-transform: uppercase;
 	line-height: 40px;
 }
+.btnSubmit, .btnSendToMail
+{
+	border: 1px solid rgb(240,240,240);
+	padding:  0px 35px 0px 15px;
+	font-family: "AutorRegular";
+	font-size: 13px;
+	color: rgb(210,42,55);
+	background-color: rgb(255,255,255);
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	line-height: 40px;
+}
+.btnRed
+{
+	padding:  0px 15px 0px 15px;
+	font-family: "AutorRegular";
+	font-size: 13px;
+	color:  rgb(255,255,255); 
+	background-color:rgb(210,42,55);
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	line-height: 40px;
+}
 .btnWhite.btnAdd
 {
 	color: rgb(4,145,0);
@@ -199,7 +227,7 @@ body
 	line-height: 30px;
 	font-size: 12px;
 }
-.btnWhite.btnRight::after, .btnBottom.btnRight::after
+.btnWhite.btnRight::after, .btnBottom.btnRight::after, .btnSubmit.btnRight::after
 {
 
 	right: 10px;
@@ -249,6 +277,7 @@ body
 	width: calc(100vw - 120px);
 	height: 100px;
 	display: none;
+	z-index: 999;
 }
 .navigation__top .item
 {
@@ -262,6 +291,16 @@ body
 	margin: 0 10px;
 	display: inline-block;
 	cursor: pointer;
+}
+.navigation__top .resetAll
+{
+	
+	float: right;
+	margin:  15px 15px 0px 0px;	
+}
+.navigation__top .resetAll span
+{
+	color: rgb(211,43,56);
 }
 .navigation__top .item span
 {
@@ -308,6 +347,7 @@ body
 {
 	position: relative;
 	margin: 5px 10px;
+	float: right;
 }
 .calculator__content .bottomRed .btnWhite
 {
@@ -330,7 +370,7 @@ body
 	float: left;
 	line-height: 40px;
 	font-size: 17px;
-	margin: 0px 10px 0px 30px;
+	margin: 0px 10px 0px 10px;
 	display: inline-block;
 	font-family: "AutorRegular";
 	color: rgb(116,116,116);
@@ -355,15 +395,34 @@ body
 {
 	color: rgb(50,50,50);
 }
-.reset__step1, .reset__step2, .reset__step3, .reset__step4, .reset__step5
+.navstep__diepte
 {
 	float: right;
+	line-height: 40px;
+	font-size: 17px;
+	margin: 0px 10px 0px 30px;
+	display: inline-block;
+	font-family: "AutorRegular";
+	color: rgb(116,116,116);
+}
+.navstep__diepte .txt
+{
+	color: rgb(50,50,50);
+	float: left;
+}
+.nav__step__depth .nav__step__box
+{
+	cursor: pointer;
+}
+/*.reset__step1, .reset__step2, .reset__step3, .reset__step4, .reset__step5
+{
+	float: left;
 	margin: 5px 10px;
 	line-height: 20px;
 	font-size: 14px;
 
 	color: rgb(116,116,116);
-}
+}*/
 
 
 .calculator__content .steps
@@ -520,6 +579,10 @@ body
 	line-height: 1em;
 	font-size: 20px;
 }
+.depth__45, .depth__40
+{
+	display: none;
+}
 .placeholder__slider__meubels, .placeholder__slider__fontijn, .placeholder__slider__kasten, .placeholder__slider__spiegelkasten
 {
 	position: absolute;
@@ -566,6 +629,10 @@ body
     width: 100%;
     font-size: 12px;
     margin: 0;
+}
+.slider__meubels, .slider__wastafels, .slider__materiaal, .slider__fontijn, .slider__materiaal__fontijntje, .slider__kasten, .slider__materiaal__kasten, .slider__spiegelkasten, .slider__materiaal__spiegelkasten, .slider__spiegel, .slider__spiegel__afmeting
+{
+	padding: 0px 40px;
 }
 .calculator__content .item.selected
 {
@@ -682,6 +749,7 @@ body
 }
 .overzicht__samenstelling
 {
+	position: relative;
 	margin: 20px;
 }
 .overzicht__samenstelling .imageOverview
@@ -725,6 +793,13 @@ body
     left: 40px;
     z-index: 5;
 }
+.overzicht__samenstelling .imageOverview .kasten_rechts
+{
+	position: absolute;
+         top: 20px;
+    left: 440px;
+    z-index: 5;
+}
 .overzicht__samenstelling .imageOverview .spiegelkasten
 {
 	position: absolute;
@@ -734,9 +809,17 @@ body
   
     z-index: 5;
 }
+.tbl__samenstelling
+{
+	font-size: 13px;
+}
 .tbl__samenstelling tr
 {
 	height: 30px;
+}
+.tbl__samenstelling tr.highlight
+{
+	background-color: rgb(240,240,240);
 }
 .tbl__samenstelling tr.firstRow
 {
@@ -758,4 +841,50 @@ body
 {
 	height: 150px;
 	width: auto;
+}
+.btnSendToMail
+{
+	position: absolute;
+	right: 0px;
+    bottom: 160px;
+    z-index: 777;
+}
+.mailForm 
+{
+	top: 100px;
+	left: -100%;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(255,255,255);
+    z-index: 999;
+    text-align: center;
+}
+.mailForm.active
+{
+	left: 0%;
+	 -webkit-transition: all 0.5s; /* Safari */
+    transition: all 0.5s;
+}
+.mailForm .frame
+{
+	margin: 0 auto;
+	width: 660px;
+	height: 450px;
+	position: relative;
+	padding: 40px;
+}
+.mailForm input
+{
+	height: 50px;
+	clear: both;
+	padding: 0px 20px;
+	margin: 5px auto;
+	width: 400px;
+	border: 1px solid rgb(240,240,240);
+}
+.closeScreen
+{
+	font-size: 13px;
+	color: rgb(50,50,50);
 }

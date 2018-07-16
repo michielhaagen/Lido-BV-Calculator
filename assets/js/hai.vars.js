@@ -1,3 +1,5 @@
+$URL__LIDOAPP = 'https://app.lidobv.nl';
+
 $array_colors = [
 	"150X",
 	"152X",
