@@ -176,21 +176,7 @@ $(document).ready(function ()
         $(".placeholder__slider__meubels").hide();
         $(".placeholder__slider__meubels.depth__51").show();
     });
-    $(".reset__step2").on($ACTION, function()
-    {
-        $(".fontijn__voorbeeld").html('');
-
-        $(".step__2 .btnKiesKleur").hide();
-
-        //$(".placeholder__slider__fontijn").hide();
-        $(".placeholder__slider__fontijntje__materiaal").hide();
-        $(".placeholder__slider__fontijn").show();
-        $(".slider__materiaal__fontijntje").html('');
-
-        $(".step__2 .nav__step").removeClass('active');
-        $(".step__2 .navstep__1").addClass('active');
-        $(".step__2 .btnAdd").hide();
-    });
+   
     $(".reset__step3").on($ACTION, function()
     {
         $(".kasten__voorbeeld").html('');
@@ -364,43 +350,7 @@ $(document).ready(function ()
     });
 
 
-    //STEP 2 Fontijnje
-    $("#slider__fontijn").slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        variableWidth: true,
-        arrows: false,
-        fade: false,
-        infinite: false,
-        centerMode: false,
-        dots: false,
-        autoplay: false
-    });
-
-    $fontijnIDs = '';
-    $fontijnNames = '';
-    $(".slider__fontijn .item").on($ACTION, function()
-    {
-        $(".fontijntje__voorbeeld").html('');
-        $(".step__2 .btnKiesKleur").show();
-        $(".slider__fontijn .item").removeClass('selected');
-        $//(".slider__wastafels .item").removeClass('selected');
-        $(this).addClass('selected');
-        $(".fontijn__voorbeeld").html('<img class="badmeubel" src="' + $(this).attr('data-item') + '">')
-        //loadWastafels($(this).attr('data-id'), $(this).attr('data-names'));
-        $fontijnIDs = $(this).attr('data-id');
-        $fontijnNames = $(this).attr('data-names');
-
-    });
-    $(".step__2 .btnKiesKleur").on($ACTION, function()
-    {
-        $(this).hide();
-        $(".placeholder__slider__fontijn").hide();
-        $(".step__2 .nav__step").removeClass('active');
-        $(".step__2 .navstep__2").addClass('active');
-        loadColorsFontijn($fontijnIDs, $fontijnNames, colorsLoadedFontijn);
-        colorsLoadedFontijn = 1;
-    });
+  
 
 
     //STEP 3 KASTEN
@@ -651,40 +601,7 @@ function addSamenstelling($data1, $data2, $type)
 
         $("tr.spiegel").html("<td>" + $artikelnummer + "</td><td>" + $omschrijving + "</td><td>" + $kleur + "</td><td>&euro; "+ $prijs +"</td>")
     }
-    else if($type == 'fontein')
-    {
-        $(".imageOverview .fontein").html($data2);
-
-        $split = $data1.split(".");
-        $omschrijving = '';
-        $artikelnummer = '';
-        $prijs = '';
-        $kleur = '';
-        for($i=0;$i<$priceProductTable.length;$i++)
-        {
-            if($split[0] == $priceProductTable[$i][0])
-            {
-                $omschrijving = $priceProductTable[$i][2];
-                $prijs = parseFloat($priceProductTable[$i][1]);
-                $artikelnummer = $priceProductTable[$i][0];
-                console.log($priceProductTable[$i][0]);
-                console.log($priceProductTable[$i][1]);
-                console.log($priceProductTable[$i][2]);
-                break;
-            }
-        }
-
-        for($i=0;$i<$array_colors.length;$i++)
-        {
-            if($split[1] == $array_colors[$i])
-            {
-                $kleur = $array_colors_names[$i];
-                break;
-            }
-        }
-
-        $("tr.fontein").html("<td>" + $artikelnummer + "</td><td>" + $omschrijving + "</td><td>"+$kleur+"</td><td>&euro; "+ $prijs +"</td>")
-    }
+    
     else if($type == 'kasten')
     {
 
@@ -907,38 +824,7 @@ function loadColors($range, $description, $colorsLoaded)
     });
     $('.placeholder__slider__meubels__materiaal').fadeIn(500);
 }
-function loadColorsFontijn($range, $description, $colorsLoaded)
-{
-    
-    //$(".placeholder_slider__meubels__wastafel").fadeOut(500);
-    $(".step__2 .nav__step").removeClass('active');
-    $(".step__2 .navstep__2").addClass('active');
-    $('.placeholder__slider__fontijntje__materiaal').fadeOut(0, function()
-    {
-        if($colorsLoaded == 1)
-        {
-            console.log("UNSET");
-            $("#slider__materiaal__fontijntje").slick("unslick");
-            $('#slider__materiaal__fontijntje').html('');
-        }
-        for(i=0;i<$array_colors.length;i++)
-        {
-            $("#slider__materiaal__fontijntje").append('<div class="item" data-color="' + $array_colors[i] + '" data-range="'+$range + '"  data-description="'+$description + '"><img src="assets/img/fontijntje/colors/' + $array_colors[i] + '.jpg"><p class="txt">' + $array_colors_names[i] + '</p></div>');
-        }
-        $("#slider__materiaal__fontijntje").slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            variableWidth: true,
-            arrows: false,
-            fade: false,
-            infinite: true,
-            centerMode: true,
-            dots: false,
-            autoplay: false
-        });
-    });
-    $('.placeholder__slider__fontijntje__materiaal').fadeIn(500);
-}
+
 function loadColorsKasten($range, $description, $colorsLoaded)
 {
     
@@ -1064,7 +950,6 @@ function preloadAllImages()
 
     $aWastafels = ['MM11001','MM11002','MM11003','MM11004','MM11005','MM11006','MM11007','MM11008','MM11009','MM11010','MM11011','MM11012','MM11013','MM11014','MM11015','MM21001','MM21002','MM22004','MM21005','MM21007','MM31004','MM31007'];
 
-    $aFonteintje = ['MM41801DX','MD41801SX'];
 
     $aKasten = ['CP621LH','CP621RH','CP622LR','CP622RH'];
 
@@ -1091,12 +976,7 @@ function preloadAllImages()
 
     });
 
-    $($aFonteintje).each(function(){
-        var localSRC = this;
-        var src = 'assets/img/fontijntje/meubels/' + localSRC + '.png';
-        preloadImage(src);
 
-    });
 
     $($aKasten).each(function(){
         var localSRC = this;
@@ -1142,11 +1022,6 @@ function preloadAllImages()
             preloadImage(src);
         });
 
-        $($aFonteintje).each(function(){
-            var localFonteintje = this;
-            var src = 'assets/img/fontijntje/meubels-colored/' + localColor + '/' + localFonteintje + '.png';
-            preloadImage(src);
-        });
 
         $($aKasten).each(function(){
             var localKasten = this;
@@ -1156,7 +1031,7 @@ function preloadAllImages()
 
         $($aSpiegelkasten).each(function(){
             var localSpiegelkasten = this;
-            var src = 'assets/img/kasten/meubels-colored/' + localColor + '/' + localSpiegelkasten + '.png';
+            var src = 'assets/img/spiegelkasten/meubels-colored/' + localColor + '/' + localSpiegelkasten + '.png';
             preloadImage(src);
         });
     });
