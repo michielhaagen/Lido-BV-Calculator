@@ -2,15 +2,15 @@ $ACTION = 'touchstart';
 $(document).ready(function () 
 {
     preloadAllImages();
-    var colorsLoaded = 0;
-    var colorsLoadedFontijn = 0;
-    var colorsLoadedSpiegels = 0;
-    var colorsLoadedKasten = 0;
-    var colorsLoadedSpiegelkasten = 0;
-    var samenstelling = "";
-    console.log("READY");
-    //SCREENSAVER
-    $("#slick__screensaver").slick({
+	var colorsLoaded = 0;
+	var colorsLoadedFontijn = 0;
+	var colorsLoadedSpiegels = 0;
+	var colorsLoadedKasten = 0;
+	var colorsLoadedSpiegelkasten = 0;
+	var samenstelling = "";
+	console.log("READY");
+	//SCREENSAVER
+	$("#slick__screensaver").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: false,
@@ -24,50 +24,50 @@ $(document).ready(function ()
         pauseOnHover: false           
     });
 
-    var s_saver;
-    $('body').on($ACTION, function() {
-        clearTimeout(s_saver);
-        s_saver = setTimeout(function(){
-            $("#slick__screensaver").slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                variableWidth: false,
-                arrows: false,
-                fade: true,
-                infinite: true,
-                dots: false,
-                autoplay: true,
-                autoplaySpeed: 600000, //6 mins
-                speed: 1000,
-                pauseOnHover: false           
-            });
-            $(".navigation__top").hide();
-            $('.screensaver').fadeIn(900);
-        }, 1800000);
-    
-        $('.screensaver').fadeOut(900);
+	var s_saver;
+	$('body').on($ACTION, function() {
+		clearTimeout(s_saver);
+		s_saver = setTimeout(function(){
+			$("#slick__screensaver").slick({
+		        slidesToShow: 1,
+		        slidesToScroll: 1,
+		        variableWidth: false,
+		        arrows: false,
+		        fade: true,
+		        infinite: true,
+		        dots: false,
+		        autoplay: true,
+		        autoplaySpeed: 600000, //6 mins
+		        speed: 1000,
+		        pauseOnHover: false           
+		    });
+			$(".navigation__top").hide();
+			$('.screensaver').fadeIn(900);
+		}, 1800000);
+	
+		$('.screensaver').fadeOut(900);
         $(".navigation__top").show();
-    });
-    //NAVIGATION
-    $(".navigation__top .item").on($ACTION, function()
-    {   
-        $(".navigation__top .item.active").removeClass('active');
-        $(this).addClass('active');
-        $newActive = "." + $(this).attr('data-id');
-        $(".calculator__content .steps.active").fadeOut(500).removeClass('active').fadeIn(500);
-        $($newActive).addClass('active');
-    });
+	});
+	//NAVIGATION
+	$(".navigation__top .item").on($ACTION, function()
+	{	
+		$(".navigation__top .item.active").removeClass('active');
+		$(this).addClass('active');
+		$newActive = "." + $(this).attr('data-id');
+		$(".calculator__content .steps.active").fadeOut(500).removeClass('active').fadeIn(500);
+		$($newActive).addClass('active');
+	});
 
-    $(".btnSamenstelilng").on($ACTION, function()
+	$(".btnSamenstelilng").on($ACTION, function()
 
-    {
+	{
         $(".navigation__top .item.active").removeClass('active');
         $newActive = ".samenstelling";
         $(".calculator__content .steps.active").fadeOut(500).removeClass('active').fadeIn(500);
         $($newActive).addClass('active');
-    });
-    //SLICK CONTROLS
-    $(".slider__arrow__next").on($ACTION, function()
+	});
+	//SLICK CONTROLS
+	$(".slider__arrow__next").on($ACTION, function()
     {
         var cls = "#" + $(this).attr('data-tag');
         var slider = $(cls);
@@ -87,6 +87,7 @@ $(document).ready(function ()
             if(data == 'done')
             {
                 $b.text("E-mail succesvol verzonden");
+                $b.addClass('green');
                
             }
         });
@@ -132,20 +133,20 @@ $(document).ready(function ()
 
    /* $(".makeBig").on($ACTION, function()
     {
-        $(".hoverPage").toggleClass('active');
-        $(this).parent(".vergroot").toggleClass('active');
+    	$(".hoverPage").toggleClass('active');
+    	$(this).parent(".vergroot").toggleClass('active');
     });*/
 
     //SAVE SAMENSTELLINGEN
     $(".btnAdd").on($ACTION, function()
     {
-        $data1 = $(this).attr('data-id');
-        $data2 = $(this).attr('data-tag');
-        $data3 = $(this).attr('data-type');
-        addSamenstelling($data1, $data2, $data3);
-        $b = $(this);
-        $b.text("Succesvol opgeslagen");
-        setTimeout(function(){ $b.text("Opslaan"); }, 5000);
+    	$data1 = $(this).attr('data-id');
+    	$data2 = $(this).attr('data-tag');
+    	$data3 = $(this).attr('data-type');
+    	addSamenstelling($data1, $data2, $data3);
+    	$b = $(this);
+    	$b.text("Succesvol opgeslagen");
+    	setTimeout(function(){ $b.text("Opslaan"); }, 5000);
     });
     $(".nav__step__depth").on($ACTION, function()
     {
@@ -311,8 +312,8 @@ $(document).ready(function ()
 
     });
 
-    //STEP 1 MEUBELS
-    $("#slider__meubels__40, #slider__meubels__45, #slider__meubels__51").slick({
+	//STEP 1 MEUBELS
+	$("#slider__meubels__40, #slider__meubels__45, #slider__meubels__51").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: true,
@@ -323,23 +324,23 @@ $(document).ready(function ()
         dots: false,
         autoplay: false
     });
-    $meubelsID = 0;
-    $meubelsDataNames = '';
+	$meubelsID = 0;
+	$meubelsDataNames = '';
     $(".slider__meubels .item").on($ACTION, function()
-    {
+	{
 
-        $(".step__1 .btnKiesKleur").show();
+		$(".step__1 .btnKiesKleur").show();
         $(".wastafel__voorbeeld").html('');
         $(".slider__meubels .item").removeClass('selected');
         $(".slider__wastafels .item").removeClass('selected');
         $(this).addClass('selected');
         $(".badmeubel__voorbeeld").html('<img class="badmeubel" src="' + $(this).attr('data-item') + '">')
-        $meubelsID = $(this).attr('data-id');
+		$meubelsID = $(this).attr('data-id');
         $meubelsDataNames = $(this).attr('data-names');
-    });
+	});
 
-    $(".step__1 .btnKiesKleur").on($ACTION, function()
-    {
+	$(".step__1 .btnKiesKleur").on($ACTION, function()
+	{
         $(this).hide();
         $(".slider__meubels").hide();
         $(".step__1 .nav__step").removeClass('active');
@@ -347,14 +348,14 @@ $(document).ready(function ()
         //loadWastafels($(this).attr('data-id'), $(this).attr('data-names'));
         loadColors($meubelsID, $meubelsDataNames, colorsLoaded);
         colorsLoaded = 1;
-    });
+	});
 
 
   
 
 
-    //STEP 3 KASTEN
-    $("#slider__kasten").slick({
+	//STEP 3 KASTEN
+	$("#slider__kasten").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: true,
@@ -366,34 +367,34 @@ $(document).ready(function ()
         autoplay: false
     });
 
-    $kastenIDs = '';
-    $kastenNames = '';
+	$kastenIDs = '';
+	$kastenNames = '';
     $(".slider__kasten .item").on($ACTION, function()
-    {
-        $(".kasten__voorbeeld").html('');
-        $(".step__3 .btnKiesKleur").show();
-        $(".slider__kasten .item").removeClass('selected');
-        $//(".slider__wastafels .item").removeClass('selected');
-        $(this).addClass('selected');
-        $(".kasten__voorbeeld").html('<img class="badmeubel" src="' + $(this).attr('data-item') + '">')
-        //loadWastafels($(this).attr('data-id'), $(this).attr('data-names'));
+	{
+		$(".kasten__voorbeeld").html('');
+		$(".step__3 .btnKiesKleur").show();
+		$(".slider__kasten .item").removeClass('selected');
+		$//(".slider__wastafels .item").removeClass('selected');
+		$(this).addClass('selected');
+		$(".kasten__voorbeeld").html('<img class="badmeubel" src="' + $(this).attr('data-item') + '">')
+		//loadWastafels($(this).attr('data-id'), $(this).attr('data-names'));
         $kastenIDs = $(this).attr('data-id');
-        $kastenNames = $(this).attr('data-names');
+		$kastenNames = $(this).attr('data-names');
 
-    });
+	});
     $(".step__3 .btnKiesKleur").on($ACTION, function()
-    {
+	{
         $(this).hide();
-        $(".placeholder__slider__kasten").hide();
+		$(".placeholder__slider__kasten").hide();
         $(".step__3 .nav__step").removeClass('active');
         $(".step__3 .navstep__2").addClass('active');
         loadColorsKasten($kastenIDs, $kastenNames, colorsLoadedKasten);
         colorsLoadedKasten = 1;
-    });
+	});
 
 
     //STEP 4 SPIEGELKASTEN
-    $("#slider__spiegelkasten").slick({
+	$("#slider__spiegelkasten").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: true,
@@ -405,33 +406,33 @@ $(document).ready(function ()
         autoplay: false
     });
 
-    $spiegelkastenIDs = '';
-    $spiegelkastenNames = '';
+	$spiegelkastenIDs = '';
+	$spiegelkastenNames = '';
     $(".slider__spiegelkasten .item").on($ACTION, function()
-    {
-        $(".spiegelkasten__voorbeeld").html('');
-        $(".step__4 .btnKiesKleur").show();
-        $(".slider__spiegelkasten .item").removeClass('selected');
-        $//(".slider__wastafels .item").removeClass('selected');
-        $(this).addClass('selected');
-        $(".spiegelkasten__voorbeeld").html('<img class="badmeubel" src="' + $(this).attr('data-item') + '">')
-        //loadWastafels($(this).attr('data-id'), $(this).attr('data-names'));
+	{
+		$(".spiegelkasten__voorbeeld").html('');
+		$(".step__4 .btnKiesKleur").show();
+		$(".slider__spiegelkasten .item").removeClass('selected');
+		$//(".slider__wastafels .item").removeClass('selected');
+		$(this).addClass('selected');
+		$(".spiegelkasten__voorbeeld").html('<img class="badmeubel" src="' + $(this).attr('data-item') + '">')
+		//loadWastafels($(this).attr('data-id'), $(this).attr('data-names'));
         $spiegelkastenIDs = $(this).attr('data-id');
-        $spiegelkastenNames = $(this).attr('data-names');
+		$spiegelkastenNames = $(this).attr('data-names');
 
-    });
+	});
     $(".step__4 .btnKiesKleur").on($ACTION, function()
-    {
+	{
         $(this).hide();
-        $(".placeholder__slider__spiegelkasten").hide();
+		$(".placeholder__slider__spiegelkasten").hide();
         $(".step__4 .nav__step").removeClass('active');
         $(".step__4 .navstep__2").addClass('active');
         loadColorsSpiegelkasten($spiegelkastenIDs, $spiegelkastenNames, colorsLoadedSpiegelkasten);
         colorsLoadedSpiegelkasten = 1;
-    });
+	});
 
     //STEP 5 spiegels
-    $("#slider__spiegel").slick({
+	$("#slider__spiegel").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: true,
@@ -442,35 +443,35 @@ $(document).ready(function ()
         dots: false,
         autoplay: false
     });
-    $spiegelIDs = '';
-    $spiegelNames = '';
+	$spiegelIDs = '';
+	$spiegelNames = '';
     $(".slider__spiegel .item").on($ACTION, function()
-    {
-        $("#btn__5").hide();
+	{
+		$("#btn__5").hide();
 
-        $(".spiegel__voorbeeld").html('');
+		$(".spiegel__voorbeeld").html('');
         $(".step__5 .btnKiesAfmeting").show();
-        $(".slider__spiegel .item").removeClass('selected');
-        $//(".slider__wastafels .item").removeClass('selected');
-        $(this).addClass('selected');
-        $(".spiegel__voorbeeld").html('<img class="badmeubel" src="' + $(this).attr('data-item') + '">')
-        //loadWastafels($(this).attr('data-id'), $(this).attr('data-names'));
+		$(".slider__spiegel .item").removeClass('selected');
+		$//(".slider__wastafels .item").removeClass('selected');
+		$(this).addClass('selected');
+		$(".spiegel__voorbeeld").html('<img class="badmeubel" src="' + $(this).attr('data-item') + '">')
+		//loadWastafels($(this).attr('data-id'), $(this).attr('data-names'));
         $spiegelIDs = $(this).attr('data-id');
         $spiegelNames = $(this).attr('data-names');
 
 
-    });
-    $(".step__5 .btnKiesAfmeting").on($ACTION, function()
-    {
+	});
+	$(".step__5 .btnKiesAfmeting").on($ACTION, function()
+	{
         $(this).hide();
-        $(".placeholder__slider__spiegel").hide();
+		$(".placeholder__slider__spiegel").hide();
         $(".step__5 .nav__step").removeClass('active');
         $(".step__5 .navstep__2").addClass('active');
         loadColorsSpiegels($spiegelIDs, $spiegelNames, colorsLoadedSpiegels);
         colorsLoadedSpiegels = 1;
-    })
+	})
 
-    
+	
 });
 
 $step1_sm_dataRange = '';
@@ -499,7 +500,7 @@ $(document).on($ACTION, ".step__1 .btnKiesBlad", function()
     $(this).hide();
     $(".step__1 .nav__step").removeClass('active');
     $(".step__1 .navstep__3").addClass('active');
-    $(".placeholder__slider__meubels__materiaal").hide();
+	$(".placeholder__slider__meubels__materiaal").hide();
     loadWastafels($step1_sm_dataRange, $step1_sm_dataDescr);
 });
 
@@ -510,7 +511,7 @@ $(".step__1 .btnKiesKleur").show();
         $(".slider__wastafels .item").removeClass('selected');
         $(this).addClass('selected');
         $(".badmeubel__voorbeeld").html('<img class="badmeubel" src="' + $(this).attr('data-item') + '">')
-        $meubelsID = $(this).attr('data-id');
+		$meubelsID = $(this).attr('data-id');
         $meubelsDataNames = $(this).attr('data-names');
  */
 
@@ -538,10 +539,10 @@ $(document).on($ACTION,".slider__wastafels .item", function()
 
 function addSamenstelling($data1, $data2, $type)
 {
-    if($type == 'meubel')
-    {
-        $ex = $data2.split("{}");
-        $(".imageOverview .meubel").html($ex[0] + $ex[1]);
+	if($type == 'meubel')
+	{
+		$ex = $data2.split("{}");
+		$(".imageOverview .meubel").html($ex[0] + $ex[1]);
         $split = $data1.split(".");
         $omschrijving = '';
         $artikelnummer = '';
@@ -573,11 +574,11 @@ function addSamenstelling($data1, $data2, $type)
         //$omschrijving = $priceProductTable.indexOf($split[0]);
         //$kleur = $split[1];
         $("tr.meubel").html("<td>" + $artikelnummer + "</td><td>" + $omschrijving + "</td><td>" + $kleur + "</td><td>&euro; "+ $prijs +"</td>")
-    
-    }
-    else if($type == 'spiegel')
-    {
-        $(".imageOverview .spiegel").html($data2);
+	
+	}
+	else if($type == 'spiegel')
+	{
+		$(".imageOverview .spiegel").html($data2);
 
         $split = $data1.split(".");
         $omschrijving = '';
@@ -600,8 +601,8 @@ function addSamenstelling($data1, $data2, $type)
 
 
         $("tr.spiegel").html("<td>" + $artikelnummer + "</td><td>" + $omschrijving + "</td><td>" + $kleur + "</td><td>&euro; "+ $prijs +"</td>")
-    }
-    
+	}
+	
     else if($type == 'kasten')
     {
 
@@ -691,70 +692,70 @@ function addSamenstelling($data1, $data2, $type)
 
        
     }
-    else
-    {
-        $img = "<div class=\"overig\">" + $data2 + "</div>";
-        $(".imageOverview .overig").html($img);
-    }
-    
-    
-    
+	else
+	{
+		$img = "<div class=\"overig\">" + $data2 + "</div>";
+		$(".imageOverview .overig").html($img);
+	}
+	
+	
+	
 
-    
-    return true;    
+	
+	return true;	
 }
 /*$(document).on($ACTION,".slider__spiegel .item", function()
 {
-    $(".fontijn__voorbeeld").html('');
-    $(".spiegel__voorbeeld .item").removeClass('selected');
-    $(this).addClass('selected');
-    $id = $(this).attr('data-range').split("{}");
-    $color = $(this).attr('data-color');
-    //console.log($var);
-    $(".spiegel__voorbeeld").html('<img class="badmeubel" src="assets/img/spiegels/' + $id[0]  + '.png">')
-    //$(".wastafel__voorbeeld").append('<img class="wastafel" src="' + $(this).attr('data-item') + '">')
-    //loadColors($(this).attr('data-artikel'));     
-    //loadWastafels($(this).attr('data-range'), $(this).attr('data-description'));
+	$(".fontijn__voorbeeld").html('');
+	$(".spiegel__voorbeeld .item").removeClass('selected');
+	$(this).addClass('selected');
+	$id = $(this).attr('data-range').split("{}");
+	$color = $(this).attr('data-color');
+	//console.log($var);
+	$(".spiegel__voorbeeld").html('<img class="badmeubel" src="assets/img/spiegels/' + $id[0]  + '.png">')
+	//$(".wastafel__voorbeeld").append('<img class="wastafel" src="' + $(this).attr('data-item') + '">')
+	//loadColors($(this).attr('data-artikel'));		
+	//loadWastafels($(this).attr('data-range'), $(this).attr('data-description'));
 });*/
 $(document).on($ACTION,".slider__materiaal__fontijntje .item", function()
 {
-    $(".fontijn__voorbeeld").html('');
-    $(".step__2 .btnKiesKleur").hide();
-    $(".slider__materiaal__fontijntje .item").removeClass('selected');
-    $(this).addClass('selected');
-    $id = $(this).attr('data-range').split("{}");
-    $color = $(this).attr('data-color');
-    //console.log($var);
+	$(".fontijn__voorbeeld").html('');
+	$(".step__2 .btnKiesKleur").hide();
+	$(".slider__materiaal__fontijntje .item").removeClass('selected');
+	$(this).addClass('selected');
+	$id = $(this).attr('data-range').split("{}");
+	$color = $(this).attr('data-color');
+	//console.log($var);
 
-    
-    $artikel = $(".slider__fontijn .item.selected").attr('data-id');
-    $dataID = $artikel + '.' + $color;
-    $("#btn__2").attr('data-id',$dataID).attr('data-tag','<img src="assets/img/fontijntje/meubels-colored/' + $color  + '/' + $id[0]  + '.png">').attr('data-type', 'fontein').fadeIn(300);
+	
+	$artikel = $(".slider__fontijn .item.selected").attr('data-id');
+	$dataID = $artikel + '.' + $color;
+	$("#btn__2").attr('data-id',$dataID).attr('data-tag','<img src="assets/img/fontijntje/meubels-colored/' + $color  + '/' + $id[0]  + '.png">').attr('data-type', 'fontein').fadeIn(300);
 
-    $(".fontijn__voorbeeld").html('<img class="badmeubel" src="assets/img/fontijntje/meubels-colored/' + $color  + '/' + $id[0]  + '.png">')
-    //$(".wastafel__voorbeeld").append('<img class="wastafel" src="' + $(this).attr('data-item') + '">')
-    //loadColors($(this).attr('data-artikel'));     
-    //loadWastafels($(this).attr('data-range'), $(this).attr('data-description'));
+	$(".fontijn__voorbeeld").html('<img class="badmeubel" src="assets/img/fontijntje/meubels-colored/' + $color  + '/' + $id[0]  + '.png">')
+	//$(".wastafel__voorbeeld").append('<img class="wastafel" src="' + $(this).attr('data-item') + '">')
+	//loadColors($(this).attr('data-artikel'));		
+	//loadWastafels($(this).attr('data-range'), $(this).attr('data-description'));
 });
 $(document).on($ACTION,".slider__materiaal__kasten .item", function()
 {
-    $(".kasten__voorbeeld").html('');
-    $(".step__3 .btnKiesKleur").hide();
-    $(".slider__materiaal__kasten .item").removeClass('selected');
-    $(this).addClass('selected');
-    $id = $(this).attr('data-range').split("{}");
-    $color = $(this).attr('data-color');
-    //console.log($var);
+	$(".kasten__voorbeeld").html('');
+	$(".step__3 .btnKiesKleur").hide();
+	$(".slider__materiaal__kasten .item").removeClass('selected');
+	$(this).addClass('selected');
+	$id = $(this).attr('data-range').split("{}");
+	$color = $(this).attr('data-color');
+	//console.log($var);
 
-    
-    $artikel = $(".slider__kasten .item.selected").attr('data-id');
-    $dataID = $artikel + '.' + $color;
-    $("#btn__3").attr('data-id',$dataID).attr('data-tag','<img src="assets/img/kasten/meubels-colored/' + $color  + '/' + $id[0]  + '.png">').attr('data-type', 'kasten').fadeIn(300);
+	
+	$artikel = $(".slider__kasten .item.selected").attr('data-id');
+	$dataID = $artikel + '.' + $color;
+	$("#btn__3").attr('data-id',$dataID).attr('data-tag','<img src="assets/img/kasten/meubels-colored/' + $color  + '/' + $id[0]  + '.png">').attr('data-type', 'kasten').fadeIn(300);
 
-    $(".kasten__voorbeeld").html('<img class="badmeubel" src="assets/img/kasten/meubels-colored/' + $color  + '/' + $id[0]  + '.png">')
-    //$(".wastafel__voorbeeld").append('<img class="wastafel" src="' + $(this).attr('data-item') + '">')
-    //loadColors($(this).attr('data-artikel'));     
-    //loadWastafels($(this).attr('data-range'), $(this).attr('data-description'));
+	$(".kasten__voorbeeld").html('<img class="badmeubel" src="assets/img/kasten/meubels-colored/' + $color  + '/' + $id[0]  + '.png">')
+	//$(".wastafel__voorbeeld").append('<img class="wastafel" src="' + $(this).attr('data-item') + '">')
+	//loadColors($(this).attr('data-artikel'));		
+	//loadWastafels($(this).attr('data-range'), $(this).attr('data-description'));
 });
 $(document).on($ACTION,".slider__materiaal__spiegelkasten .item", function()
 {
@@ -778,164 +779,164 @@ $(document).on($ACTION,".slider__materiaal__spiegelkasten .item", function()
 });
 $(document).on($ACTION,".slider__spiegel__afmeting .item", function()
 {
-    $(".spiegel__voorbeeld").html('');
-    $(".step__5 .btnKiesAfmeting").hide();
-    $(".slider__spiegel__afmeting .item").removeClass('selected');
-    $(this).addClass('selected');
-    $id = $(this).attr('data-id');
-    $("#btn__5").attr('data-id',$id).attr('data-tag', '<img class="badmeubel" src="assets/img/spiegels/' + $id  + '.png">').attr('data-type', 'spiegel').fadeIn(300);
-    //console.log($var);
-    $(".spiegel__voorbeeld").html('<img class="badmeubel" src="assets/img/spiegels/' + $id  + '.png">')
-    //$(".wastafel__voorbeeld").append('<img class="wastafel" src="' + $(this).attr('data-item') + '">')
-    //loadColors($(this).attr('data-artikel'));     
-    //loadWastafels($(this).attr('data-range'), $(this).attr('data-description'));
+	$(".spiegel__voorbeeld").html('');
+	$(".step__5 .btnKiesAfmeting").hide();
+	$(".slider__spiegel__afmeting .item").removeClass('selected');
+	$(this).addClass('selected');
+	$id = $(this).attr('data-id');
+	$("#btn__5").attr('data-id',$id).attr('data-tag', '<img class="badmeubel" src="assets/img/spiegels/' + $id  + '.png">').attr('data-type', 'spiegel').fadeIn(300);
+	//console.log($var);
+	$(".spiegel__voorbeeld").html('<img class="badmeubel" src="assets/img/spiegels/' + $id  + '.png">')
+	//$(".wastafel__voorbeeld").append('<img class="wastafel" src="' + $(this).attr('data-item') + '">')
+	//loadColors($(this).attr('data-artikel'));		
+	//loadWastafels($(this).attr('data-range'), $(this).attr('data-description'));
 });
 
 
 function loadColors($range, $description, $colorsLoaded)
 {
-    
-    //$(".placeholder_slider__meubels__wastafel").fadeOut(500);
-    $('.placeholder__slider__meubels__materiaal').fadeOut(0, function()
-    {
-        
+	
+	//$(".placeholder_slider__meubels__wastafel").fadeOut(500);
+	$('.placeholder__slider__meubels__materiaal').fadeOut(0, function()
+	{
+		
 
-        if($colorsLoaded == 1)
-        {
-            console.log("UNSET");
-            $("#slider__materiaal").slick("unslick");
-            $('#slider__materiaal').html('');
-        }
-        for(i=0;i<$array_colors.length;i++)
-        {
-            $("#slider__materiaal").append('<div class="item" data-color="' + $array_colors[i] + '" data-range="'+$range + '"  data-description="'+$description + '"><img src="assets/img/badmeubel/colors/' + $array_colors[i] + '.jpg"><p class="txt">' + $array_colors_names[i] + '</p></div>');
-        }
-        $("#slider__materiaal").slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            variableWidth: true,
-            arrows: false,
-            fade: false,
-            infinite: false,
-            centerMode: false,
-            dots: false,
-            autoplay: false
-        });
-    });
-    $('.placeholder__slider__meubels__materiaal').fadeIn(500);
+		if($colorsLoaded == 1)
+		{
+			console.log("UNSET");
+			$("#slider__materiaal").slick("unslick");
+			$('#slider__materiaal').html('');
+		}
+		for(i=0;i<$array_colors.length;i++)
+		{
+			$("#slider__materiaal").append('<div class="item" data-color="' + $array_colors[i] + '" data-range="'+$range + '"  data-description="'+$description + '"><img src="assets/img/badmeubel/colors/' + $array_colors[i] + '.jpg"><p class="txt">' + $array_colors_names[i] + '</p></div>');
+		}
+		$("#slider__materiaal").slick({
+	        slidesToShow: 1,
+	        slidesToScroll: 1,
+	        variableWidth: true,
+	        arrows: false,
+	        fade: false,
+	        infinite: false,
+	        centerMode: false,
+	        dots: false,
+	        autoplay: false
+	    });
+	});
+	$('.placeholder__slider__meubels__materiaal').fadeIn(500);
 }
 
 function loadColorsKasten($range, $description, $colorsLoaded)
 {
-    
-    //$(".placeholder_slider__meubels__wastafel").fadeOut(500);
-    $(".step__3 .nav__step").removeClass('active');
-    $(".step__3 .navstep__2").addClass('active');
-    $('.placeholder__slider__kasten__materiaal').fadeOut(0, function()
-    {
-        if($colorsLoaded == 1)
-        {
-            console.log("UNSET");
-            $("#slider__materiaal__kasten").slick("unslick");
-            $('#slider__materiaal__kasten').html('');
-        }
-        for(i=0;i<$array_colors.length;i++)
-        {
-            $("#slider__materiaal__kasten").append('<div class="item" data-color="' + $array_colors[i] + '" data-range="'+$range + '"  data-description="'+$description + '"><img src="assets/img/kasten/colors/' + $array_colors[i] + '.jpg"><p class="txt">' + $array_colors_names[i] + '</p></div>');
-        }
-        $("#slider__materiaal__kasten").slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            variableWidth: true,
-            arrows: false,
-            fade: false,
-            infinite: false,
-            centerMode: false,
-            dots: false,
-            autoplay: false
-        });
-    });
-    $('.placeholder__slider__kasten__materiaal').fadeIn(500);
+	
+	//$(".placeholder_slider__meubels__wastafel").fadeOut(500);
+	$(".step__3 .nav__step").removeClass('active');
+	$(".step__3 .navstep__2").addClass('active');
+	$('.placeholder__slider__kasten__materiaal').fadeOut(0, function()
+	{
+		if($colorsLoaded == 1)
+		{
+			console.log("UNSET");
+			$("#slider__materiaal__kasten").slick("unslick");
+			$('#slider__materiaal__kasten').html('');
+		}
+		for(i=0;i<$array_colors.length;i++)
+		{
+			$("#slider__materiaal__kasten").append('<div class="item" data-color="' + $array_colors[i] + '" data-range="'+$range + '"  data-description="'+$description + '"><img src="assets/img/kasten/colors/' + $array_colors[i] + '.jpg"><p class="txt">' + $array_colors_names[i] + '</p></div>');
+		}
+		$("#slider__materiaal__kasten").slick({
+	        slidesToShow: 1,
+	        slidesToScroll: 1,
+	        variableWidth: true,
+	        arrows: false,
+	        fade: false,
+	        infinite: false,
+	        centerMode: false,
+	        dots: false,
+	        autoplay: false
+	    });
+	});
+	$('.placeholder__slider__kasten__materiaal').fadeIn(500);
 }
 function loadColorsSpiegelkasten($range, $description, $colorsLoaded)
 {
-    
-    //$(".placeholder_slider__meubels__wastafel").fadeOut(500);
-    $(".step__4 .nav__step").removeClass('active');
-    $(".step__4 .navstep__2").addClass('active');
-    $('.placeholder__slider__spiegelkasten__materiaal').fadeOut(0, function()
-    {
-        if($colorsLoaded == 1)
-        {
-            console.log("UNSET");
-            $("#slider__materiaal__spiegelkasten").slick("unslick");
-            $('#slider__materiaal__spiegelkasten').html('');
-        }
-        for(i=0;i<$array_colors.length;i++)
-        {
-            $("#slider__materiaal__spiegelkasten").append('<div class="item" data-color="' + $array_colors[i] + '" data-range="'+$range + '"  data-description="'+$description + '"><img src="assets/img/spiegelkasten/colors/' + $array_colors[i] + '.jpg"><p class="txt">' + $array_colors_names[i] + '</p></div>');
-        }
-        $("#slider__materiaal__spiegelkasten").slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            variableWidth: true,
-            arrows: false,
-            fade: false,
-            infinite: false,
-            centerMode: false,
-            dots: false,
-            autoplay: false
-        });
-    });
-    $('.placeholder__slider__spiegelkasten__materiaal').fadeIn(500);
+	
+	//$(".placeholder_slider__meubels__wastafel").fadeOut(500);
+	$(".step__4 .nav__step").removeClass('active');
+	$(".step__4 .navstep__2").addClass('active');
+	$('.placeholder__slider__spiegelkasten__materiaal').fadeOut(0, function()
+	{
+		if($colorsLoaded == 1)
+		{
+			console.log("UNSET");
+			$("#slider__materiaal__spiegelkasten").slick("unslick");
+			$('#slider__materiaal__spiegelkasten').html('');
+		}
+		for(i=0;i<$array_colors.length;i++)
+		{
+			$("#slider__materiaal__spiegelkasten").append('<div class="item" data-color="' + $array_colors[i] + '" data-range="'+$range + '"  data-description="'+$description + '"><img src="assets/img/spiegelkasten/colors/' + $array_colors[i] + '.jpg"><p class="txt">' + $array_colors_names[i] + '</p></div>');
+		}
+		$("#slider__materiaal__spiegelkasten").slick({
+	        slidesToShow: 1,
+	        slidesToScroll: 1,
+	        variableWidth: true,
+	        arrows: false,
+	        fade: false,
+	        infinite: false,
+	        centerMode: false,
+	        dots: false,
+	        autoplay: false
+	    });
+	});
+	$('.placeholder__slider__spiegelkasten__materiaal').fadeIn(500);
 }
 function loadColorsSpiegels($ids, $description, $colorsLoaded)
 {
-    
-    //$(".placeholder_slider__meubels__wastafel").fadeOut(500);
+	
+	//$(".placeholder_slider__meubels__wastafel").fadeOut(500);
     $(".step__5 .nav__step").removeClass('active');
     $(".step__5 .navstep__2").addClass('active');
-    $('.placeholder__slider__spiegel__afmeting').fadeOut(0, function()
-    {
-        $ids = $ids.split("{}");
-        $names = $description.split("{}");
-        if($colorsLoaded == 1)
-        {
-            console.log("UNSET");
-            $("#slider__spiegel__afmeting").slick("unslick");
-            $('#slider__spiegel__afmeting').html('');
-        }
-        for(i=0;i<$ids.length;i++)
-        {
-            $("#slider__spiegel__afmeting").append('<div class="item" data-id="'+$ids[i] + '"  data-description="'+$names[i] + '"><img src="assets/img/spiegels/' + $ids[i] + '.png"><p class="txt">' + $names[i] + '</p></div>');
-        }
-        $("#slider__spiegel__afmeting").slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            variableWidth: true,
-            arrows: false,
-            fade: false,
-            infinite: false,
-            centerMode: false,
-            dots: false,
-            autoplay: false
-        });
-    });
-    $('.placeholder__slider__spiegel__afmeting').fadeIn(500);
+	$('.placeholder__slider__spiegel__afmeting').fadeOut(0, function()
+	{
+		$ids = $ids.split("{}");
+		$names = $description.split("{}");
+		if($colorsLoaded == 1)
+		{
+			console.log("UNSET");
+			$("#slider__spiegel__afmeting").slick("unslick");
+			$('#slider__spiegel__afmeting').html('');
+		}
+		for(i=0;i<$ids.length;i++)
+		{
+			$("#slider__spiegel__afmeting").append('<div class="item" data-id="'+$ids[i] + '"  data-description="'+$names[i] + '"><img src="assets/img/spiegels/' + $ids[i] + '.png"><p class="txt">' + $names[i] + '</p></div>');
+		}
+		$("#slider__spiegel__afmeting").slick({
+	        slidesToShow: 1,
+	        slidesToScroll: 1,
+	        variableWidth: true,
+	        arrows: false,
+	        fade: false,
+	        infinite: false,
+	        centerMode: false,
+	        dots: false,
+	        autoplay: false
+	    });
+	});
+	$('.placeholder__slider__spiegel__afmeting').fadeIn(500);
 }
 function loadWastafels($range, $description)
 {
-    $('.placeholder_slider__meubels__wastafel').fadeOut(0, function()
-    {
-        $(".slider__wastafels").html('');
-        $split = $range.split("{}");
-        $splitDescr = $description.split("{}");
-        for(i=0;i<$split.length;i++)
-        {
-            //console.log($split[i]);
-            $(".slider__wastafels").append('<div class="item" data-artikel="'+$split[i]+'" data-item="assets/img/badmeubel/wastafels-cropped/' + $split[i] + '.png"><img src="assets/img/badmeubel/wastafels/' + $split[i] + '.png"><p class="txt">' + $splitDescr[i] + '</p></div>');
-        }   
-        $('.placeholder_slider__meubels__wastafel').fadeIn(500);
+	$('.placeholder_slider__meubels__wastafel').fadeOut(0, function()
+	{
+		$(".slider__wastafels").html('');
+		$split = $range.split("{}");
+		$splitDescr = $description.split("{}");
+		for(i=0;i<$split.length;i++)
+		{
+			//console.log($split[i]);
+			$(".slider__wastafels").append('<div class="item" data-artikel="'+$split[i]+'" data-item="assets/img/badmeubel/wastafels-cropped/' + $split[i] + '.png"><img src="assets/img/badmeubel/wastafels/' + $split[i] + '.png"><p class="txt">' + $splitDescr[i] + '</p></div>');
+		}	
+    	$('.placeholder_slider__meubels__wastafel').fadeIn(500);
     });
 }
 

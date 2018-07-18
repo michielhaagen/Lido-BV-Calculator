@@ -247,6 +247,10 @@ body
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.btnSubmit.green
+{
+	color: rgb(4,145,0);
+}
 .btnWhite.btnSmall.btnRight::after, .btnBottom.btnSmall.btnRight::after
 {
 	top: 8px;
