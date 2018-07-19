@@ -13,13 +13,17 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="orientation" value="landscape"/>
+    <preference name="fullscreen" value="true" />
+
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
 
     <plugin name="cordova-plugin-splashscreen" source="npm" />
     <preference name="SplashScreenDelay" value="3000" />
-     <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="AutoHideSplashScreen" value="true" />
 
 
     <platform name="android">
+
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
         <icon density="xhdpi" src="www/res/icon/android/drawable-xhdpi-icon.png" />
@@ -33,6 +37,7 @@
         <splash density="land-xxxhdpi" src="www/res/screen/android/drawable-land-xxxhdpi-screen.png" />
 
     </platform>
+
    
     <access origin="*" />
     <allow-intent href="http://*/*" />
