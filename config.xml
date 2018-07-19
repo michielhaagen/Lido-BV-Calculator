@@ -13,16 +13,14 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="orientation" value="landscape"/>
-    <preference name="android-windowSoftInputMode" value="adjustResize" />
-    
+    <preference name="fullscreen" value="true" />
 
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="StatusBarStyle" value="default" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="KeyboardResize" value="true" />
-    
-    
+
+    <plugin name="cordova-plugin-splashscreen" source="npm" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="AutoHideSplashScreen" value="true" />
+
 
     <platform name="android">
 

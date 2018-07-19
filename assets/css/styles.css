@@ -1,3 +1,6 @@
+/*
+LET OP: HEIGHT 100% - 24px statusbar;
+*/
 @font-face {
 	font-family: 'icomoon';
 	src:  url('../fonts/icomoon.eot?wxqiwt');
@@ -97,7 +100,8 @@ body
 	left: 0px;
 	top: 100px;
 	width: 100vw;
-	height: calc(100vh - 100px);
+	margin-top: 24px;
+	height: calc(100vh - 100px - 24px);
 	z-index: 9998;
 }
 .loading 
@@ -154,13 +158,15 @@ body
 {
 	position: relative;
 	width: 100vw;
-	height: calc(100vh - 100px);
+	margin-top: 24px;
+	height: calc(100vh - 100px  - 24px);
 }
 .screensaver #slick__screensaver .slide
 {
 	margin: 0;
 	width: 100vw;
-	height: calc(100vh - 100px);
+	margin-top: 24px;
+	height: calc(100vh - 100px - 24px);
 	background-size: cover;
 	background-position: center center;
 }
@@ -337,7 +343,8 @@ body
 	left: 0px;
 	top: 100px;
 	width: 100%;
-	height: calc(100vh - 100px);
+	top: 24px;
+	height: calc(100vh - 100px - 24px);
 }
 .calculator__content .bottomRed {
 	height: 40px;
