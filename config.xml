@@ -18,10 +18,12 @@
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" />
 
-    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
     <preference name="StatusBarStyle" value="blacktranslucent" />
     <preference name="StatusBarDefaultScrollToTop" value="false" />
+    <preference name="fullscreen" value="true" />
+    <preference name="android-windowSoftInputMode" value="stateVisible" />
 
     <plugin name="cordova-plugin-splashscreen" source="npm" />
     <preference name="SplashScreenDelay" value="3000" />
