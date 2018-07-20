@@ -21,6 +21,7 @@
     <preference name="StatusBarBackgroundColor" value="#d22a37" />
     <preference name="StatusBarDefaultScrollToTop" value="false" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
 
     
     <plugin name="cordova-plugin-splashscreen" source="npm" />
