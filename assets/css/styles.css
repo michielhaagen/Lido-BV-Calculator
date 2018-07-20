@@ -258,7 +258,7 @@ body
 .logo
 {
 	position: fixed;
-	top: 0px;
+	top: 30px;
 	left: 10px;
 	width: 100px;
 	background-color: rgb(255,255,255);
@@ -277,7 +277,7 @@ body
 {
 	position: absolute;
 	left: 120px;
-	top: 0px;
+	top: 30px;
 	width: calc(100vw - 120px);
 	height: 100px;
 	display: none;

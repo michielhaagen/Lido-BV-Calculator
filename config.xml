@@ -13,9 +13,15 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="orientation" value="landscape"/>
-    <preference name="fullscreen" value="true" />
+   
 
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
+    <gap:plugin name="cordova-plugin-statusbar" source="npm" />
+
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="StatusBarDefaultScrollToTop" value="false" />
 
     <plugin name="cordova-plugin-splashscreen" source="npm" />
     <preference name="SplashScreenDelay" value="3000" />
