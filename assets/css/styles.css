@@ -98,7 +98,7 @@ body
 	left: 0px;
 	top: 100px;
 	width: 100vw;
-	height: calc(100vh - 100px);
+	height: calc(100vh - 100px - 25px);
 	z-index: 9998;
 }
 .loading 
@@ -155,13 +155,13 @@ body
 {
 	position: relative;
 	width: 100vw;
-	height: calc(100vh - 100px);
+	height: calc(100vh - 100px - 25px);
 }
 .screensaver #slick__screensaver .slide
 {
 	margin: 0;
 	width: 100vw;
-	height: calc(100vh - 100px);
+	height: calc(100vh - 100px - 25px);
 	background-size: cover;
 	background-position: center center;
 }
@@ -338,7 +338,7 @@ body
 	left: 0px;
 	top: 100px;
 	width: 100%;
-	height: calc(100vh - 100px);
+	height: calc(100vh - 100px - 25px);
 }
 .calculator__content .bottomRed {
 	height: 40px;
