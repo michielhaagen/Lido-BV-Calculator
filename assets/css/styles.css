@@ -76,21 +76,16 @@
 	font-size: 18px;
 	font-weight: 100;
 }
-html
-{
-	overflow: hidden;
-	overflow-x: hidden;
-	overflow-y: hidden;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
 }
 body
 {
 	font-family: 'AutorRegular';
-	margin: 0; padding: 0;
-	overflow: hidden;
 	font-size: 14px;
-	overflow-x: hidden;
-	overflow-y: hidden;
-
 }
 .cacheImage
 {
