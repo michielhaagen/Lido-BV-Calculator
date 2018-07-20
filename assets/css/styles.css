@@ -76,12 +76,20 @@
 	font-size: 18px;
 	font-weight: 100;
 }
+html
+{
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
 body
 {
 	font-family: 'AutorRegular';
 	margin: 0; padding: 0;
 	overflow: hidden;
 	font-size: 14px;
+	overflow-x: hidden;
+	overflow-y: hidden;
 
 }
 .cacheImage
@@ -98,7 +106,7 @@ body
 	left: 0px;
 	top: 100px;
 	width: 100vw;
-	height: calc(100vh - 100px - 25px);
+	height: calc(100vh - 100px);
 	z-index: 9998;
 }
 .loading 
@@ -155,13 +163,13 @@ body
 {
 	position: relative;
 	width: 100vw;
-	height: calc(100vh - 100px - 25px);
+	height: calc(100vh - 100px);
 }
 .screensaver #slick__screensaver .slide
 {
 	margin: 0;
 	width: 100vw;
-	height: calc(100vh - 100px - 25px);
+	height: calc(100vh - 100px);
 	background-size: cover;
 	background-position: center center;
 }
@@ -338,7 +346,7 @@ body
 	left: 0px;
 	top: 100px;
 	width: 100%;
-	height: calc(100vh - 100px - 25px);
+	height: calc(100vh - 100px);
 }
 .calculator__content .bottomRed {
 	height: 40px;
