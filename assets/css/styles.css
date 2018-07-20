@@ -90,10 +90,11 @@ body
 .cacheImage
 {
 	position: fixed;
-	top: -10px;
-	left: -10px;
+	top: 0px;
+	left: 0px;
 	height: 1px !important;
 	width: 1px !important;
+	z-index: -1;
 }
 .screensaver, .loading
 {
