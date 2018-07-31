@@ -1,4 +1,12 @@
 $ACTION = 'touchstart';
+var deviceID = 'na';
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    deviceID =  device.uuid;
+}
+
+
+
 $(document).ready(function () 
 {
     preloadAllImages();
@@ -85,17 +93,16 @@ $(document).ready(function ()
         $b = $(this);
         if($(".naam").val() != null && $(".email").val() != null && $(".naam").val() != "" && $(".email").val() != "")
         {
-            $.post($URL__LIDOAPP + '/app.php', { naam: $(".naam").val(), email: $(".email").val(), key: "HAI-APP-REQ", insert: $(".overzicht__samenstelling").html() }, function(data)
+            $.post($URL__LIDOAPP + '/app.php', { naam: $(".naam").val(), email: $(".email").val(), deviceID: deviceID,  key: "HAI-APP-REQ", insert: $(".overzicht__samenstelling").html() }, function(data)
             {
-                if(data == 'done')
-                {
+                
                     $b.text("E-mail succesvol verzonden");
                     $b.addClass('green');
                     setTimeout(function(){ $b.text("Verstuur"); $b.removeClass('green') }, 2000);
                     $(".naam").val("");
                     $(".email").val("");
                    
-                }
+               
             });
         }
         else
