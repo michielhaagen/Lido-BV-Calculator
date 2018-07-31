@@ -82,16 +82,27 @@ $(document).ready(function ()
     });
     $(".btnSubmit").on($ACTION, function()
     {
-         $b = $(this);
-        $.post($URL__LIDOAPP + '/app.php', { naam: $(".naam").val(), email: $(".email").val(), key: "HAI-APP-REQ", insert: $(".overzicht__samenstelling").html() }, function(data)
+        $b = $(this);
+        if($(".naam").val() != null && $(".email").val() != null && $(".naam").val() != "" && $(".email").val() != "")
         {
-            if(data == 'done')
+            $.post($URL__LIDOAPP + '/app.php', { naam: $(".naam").val(), email: $(".email").val(), key: "HAI-APP-REQ", insert: $(".overzicht__samenstelling").html() }, function(data)
             {
-                $b.text("E-mail succesvol verzonden");
-                $b.addClass('green');
-               
-            }
-        });
+                if(data == 'done')
+                {
+                    $b.text("E-mail succesvol verzonden");
+                    $b.addClass('green');
+                    setTimeout(function(){ $b.text("Verstuur"); $b.removeClass('green') }, 2000);
+                    $(".naam").val("");
+                    $(".email").val("");
+                   
+                }
+            });
+        }
+        else
+        {
+            $b.text("!! Vul alle velden in !!");
+            setTimeout(function(){ $b.text("Verstuur"); }, 2000);
+        }
     });
     $(".imageOverview div").draggable();
     $(".btnSendToMail").on($ACTION, function()
